@@ -1,0 +1,89 @@
+{
+  "hero": {
+    "title": "Captivating Stories Through Cinematic Excellence",
+    "subtitle": "Award-winning film and media production company crafting visual experiences that leave lasting impressions"
+  },
+  "services": {
+    "title": "Our Services", 
+    "description": "We offer comprehensive media production services, from concept development to final delivery, ensuring your vision comes to life with exceptional quality",
+    "exploreAll": "Explore All Services",
+    "productsPhotography": {
+      "title": "Products Photography",
+      "description": "Professional product photography services that highlight the beauty and details of products to attract customers"
+    },
+    "writingContent": {
+      "title": "Writing Content",
+      "description": "Creative content writing that expresses your brand identity and connects with your target audience"
+    },
+    "promoVedios": {
+      "title": "Promotional Videos",
+      "description": "Innovative promotional videos that enhance your brand presence and boost your sales"
+    },
+    "weddingVedios": {
+      "title": "Wedding Videos",
+      "description": "Capturing your special moments with a unique cinematic style that preserves your beautiful memories"
+    },
+    "socialMedia": {
+      "title": "Social Media Content",
+      "description": "Engaging content for social media platforms that boosts your followers' engagement"
+    },
+    "editing": {
+      "title": "Editing",
+      "description": "Professional editing services that transform your footage into a complete story that captivates viewers"
+    },
+    "eventCoverAge": {
+      "title": "Event Coverage",
+      "description": "Comprehensive coverage of events and occasions with the latest technology and highest quality standards"
+    },
+    "podcast": {
+      "title": "Podcast",
+      "description": "Professional audio content production that reaches your audience in an impactful and effective way"
+    }
+  },
+  "projects": {
+    "title": "Featured Projects",
+    "subtitle": "Explore our award-winning portfolio of work across various industries and formats",
+    "viewAll": "View All Projects"
+  },
+  "testimonials": {
+    "title": "What Our Clients Say",
+    "subtitle": "We take pride in delivering exceptional results that exceed our clients' expectations"
+  },
+  "contact": {
+    "title": "Let's Create Something Amazing Together",
+    "subtitle": "Whether you have a specific project in mind or need guidance in shaping your vision, we're here to help bring your ideas to life",
+    "form": {
+      "name": "Full Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "service": "Service Interested In",
+      "message": "Your Message",
+      "submit": "Send Message",
+      "sending": "Sending...",
+      "sent": "Message Sent!",
+      "placeholder": {
+        "name": "John Doe",
+        "email": "john@example.com",
+        "phone": "(123) 456-7890",
+        "message": "Tell us about your project..."
+      }
+    }
+  },
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "about": "About",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+  "footer": {
+    "about": "Creating cinematic experiences and visual stories that captivate audiences and elevate brands since 2010",
+    "quickLinks": "Quick Links",
+    "contactUs": "Contact Us",
+    "rights": "All rights reserved",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "sitemap": "Sitemap"
+  }
+}
