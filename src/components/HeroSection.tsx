@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { PlayCircle, ChevronDown } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-
+import vedio from '../assets/hero.mp4';
 interface HeroSectionProps {
   title?: string;
   subtitle?: string;
@@ -10,7 +10,7 @@ interface HeroSectionProps {
 }
 
 const HeroSection: React.FC<HeroSectionProps> = ({
-  videoUrl = '/src/assets/hero.mp4',
+  videoUrl = vedio,
   imageUrl,
 }) => {
   const videoRef = useRef<HTMLVideoElement>(null);

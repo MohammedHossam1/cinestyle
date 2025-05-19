@@ -13,7 +13,7 @@ const Footer: React.FC = () => {
           <div>
             <div className="flex items-center space-x-2 mb-4">
               <Film className="h-6 w-6 text-primary-500" />
-              <span className="text-lg font-bold tracking-tight text-white">LUMINA</span>
+              <span className="text-lg font-bold tracking-tight text-white">cinsetyle</span>
             </div>
             <p className="text-sm leading-relaxed mb-6">
               Creating cinematic experiences and visual stories that captivate audiences and elevate brands since 2010.
@@ -89,7 +89,7 @@ const Footer: React.FC = () => {
               </li>
               <li className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-primary-400 flex-shrink-0" />
-                <span className="text-sm">info@luminaproductions.com</span>
+                <span className="text-sm">info@cinsetyleproductions.com</span>
               </li>
             </ul>
           </div>
@@ -97,7 +97,7 @@ const Footer: React.FC = () => {
         
         <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-white/60 mb-4 md:mb-0">
-            &copy; {currentYear} Lumina Productions. All rights reserved.
+            &copy; {currentYear} cinsetyle Productions. All rights reserved.
           </p>
           <div className="flex space-x-6">
             <Link to="/privacy" className="text-xs text-white/60 hover:text-primary-400 transition-colors">

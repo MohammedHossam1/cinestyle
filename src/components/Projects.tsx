@@ -5,6 +5,7 @@ import {
 import { Link } from "react-router-dom";
 import ProjectCard from "./ProjectCard";
 import { useTranslation } from "react-i18next";
+
 const Projects = () => {
   const { t } = useTranslation();
 
@@ -12,39 +13,28 @@ const Projects = () => {
     {
       title: "projects.etherealDreams",
       category: "projects.etherealDreams.category",
-      imageUrl:
-        "https://images.pexels.com/photos/2873486/pexels-photo-2873486.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      link: "/portfolio/ethereal-dreams",
       featured: true,
       className: "lg:col-span-2",
     },
     {
-      title: "projects.novaAthletics",
+      title: "projects.novaAthletics", 
       category: "projects.novaAthletics.category",
-      imageUrl:
-        "https://images.pexels.com/photos/1049622/pexels-photo-1049622.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      link: "/portfolio/nova-athletics",
+      videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
     },
     {
       title: "projects.horizonTech",
-      category: "projects.horizonTech.category",
-      imageUrl:
-        "https://images.pexels.com/photos/3183183/pexels-photo-3183183.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      link: "/portfolio/horizon-tech",
+      category: "projects.horizonTech.category", 
+      videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
     },
     {
       title: "projects.wilderness",
       category: "projects.wilderness.category",
-      imageUrl:
-        "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      link: "/portfolio/wilderness",
+      videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
     },
     {
       title: "projects.echo",
       category: "projects.echo.category",
-      imageUrl:
-        "https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      link: "/portfolio/echo-music-video",
+      videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
     },
   ];
 
@@ -82,8 +72,7 @@ const Projects = () => {
               <ProjectCard
                 title={t(project.title)}
                 category={t(project.category)}
-                imageUrl={project.imageUrl}
-                link={project.link}
+                videoUrl={project.videoUrl}
                 featured={project.featured}
               />
             </motion.div>

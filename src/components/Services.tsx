@@ -1,16 +1,14 @@
 import { motion } from "framer-motion";
 import {
-  ArrowRight,
-  Camera,
-  Film,
-  Music,
-  Palette,
-  Scissors,
-  VideoIcon,
+    Camera,
+    Film,
+    Music,
+    Palette,
+    Scissors,
+    VideoIcon
 } from "lucide-react";
-import { Link } from "react-router-dom";
-import ServiceCard from "../components/ServiceCard";
 import { useTranslation } from "react-i18next";
+import ServiceCard from "../components/ServiceCard";
 const Services = () => {
   const { t } = useTranslation();
 
@@ -70,7 +68,7 @@ const Services = () => {
           </p>
         </motion.div>
 
-        <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
             <motion.div key={index}>
               <ServiceCard
@@ -84,15 +82,7 @@ const Services = () => {
           ))}
         </motion.div>
 
-        <motion.div className="text-center mt-12">
-          <Link
-            to="/services"
-            className="inline-flex items-center px-6 py-3 bg-primary-500 hover:bg-primary-600 text-white rounded-full font-medium transition-colors shadow-lg hover:shadow-xl"
-          >
-            {t("services.exploreAll")}
-            <ArrowRight className="ml-2 h-4 w-4 animate-pulse" />
-          </Link>
-        </motion.div>
+  
       </div>
     </section>
   );

@@ -49,7 +49,7 @@ const Navbar: React.FC = () => {
             className="flex items-center space-x-2 rtl:space-x-reverse text-white border"
           >
           
-            <Image src={logo} alt="LUMINA" className={` ${isScrolled ? 'w-12' : 'w-24 '}`} />
+            <Image src={logo} alt="cinsetyle" className={` ${isScrolled ? 'w-12' : 'w-24 '}`} />
           </Link>
 
           {/* Desktop Navigation */}
