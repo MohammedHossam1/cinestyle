@@ -19,7 +19,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
   imageUrl,
 }) => {
   return (
-    <div className="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 md:p-8">
+    <div className="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 md:p-8 h-full flex flex-col justify-between" >
       {/* Stars */}
       {rating > 0 && (
         <div className="flex mb-4">
@@ -41,9 +41,9 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
       </blockquote>
 
       {/* Author */}
-      <div className="flex items-center">
+      <div className="flex items-centder self-end gap-2 x w-full">
         {imageUrl && (
-          <div className="mr-4 flex-shrink-0">
+          <div className=" flex-shrink-0">
             <img
               src={imageUrl}
               alt={author}
@@ -51,7 +51,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
             />
           </div>
         )}
-        <div>
+        <div >
           <div className="font-medium text-neutral-900 dark:text-white">
             {author}
           </div>

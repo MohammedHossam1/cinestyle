@@ -42,31 +42,98 @@
   },
   "projects": {
     "title": "Featured Projects",
-    "subtitle": "Explore our award-winning portfolio of work across various industries and formats",
-    "viewAll": "View All Projects"
+    "description": "Explore our award-winning portfolio of work across various industries and formats",
+    "viewAll": "View All Projects",
+    "etherealDreams": {
+      "title": "Ethereal Dreams",
+      "category": "Short Film"
+    },
+    "novaAthletics": {
+      "title": "Nova Athletics",
+      "category": "Commercial"
+    },
+    "horizonTech": {
+      "title": "Horizon Tech",
+      "category": "Corporate Video"
+    },
+    "wilderness": {
+      "title": "Wilderness",
+      "category": "Documentary"
+    },
+    "echo": {
+      "title": "Echo",
+      "category": "Music Video"
+    },
+    "loadMore": "Load More"
   },
   "testimonials": {
     "title": "What Our Clients Say",
-    "subtitle": "We take pride in delivering exceptional results that exceed our clients' expectations"
+    "description": "We take pride in delivering exceptional results that exceed our clients' expectations",
+    "sarah": {
+      "content": "Incredible experience from start to finish. The team is highly professional, talented, and creative.",
+      "author": "Sarah Mohammed",
+      "position": "Marketing Director",
+      "company": "Star Company"
+    },
+    "michael": {
+      "content": "Best production company I've worked with. Results far exceeded our expectations.",
+      "author": "Michael Johnson",
+      "position": "CEO",
+      "company": "Tech Solutions"
+    },
+    "emily": {
+      "content": "Amazing team that truly cares about bringing your vision to life. Will definitely work with them again.",
+      "author": "Emily Davis",
+      "position": "Brand Manager",
+      "company": "Echo Brands"
+    }
   },
   "contact": {
     "title": "Let's Create Something Amazing Together",
     "subtitle": "Whether you have a specific project in mind or need guidance in shaping your vision, we're here to help bring your ideas to life",
+    "description": "We're excited to hear your ideas and turn them into reality. Contact us today to start your creative journey",
+    "process": {
+      "title": "Work Process",
+      "steps": {
+        "consultation": "Initial Consultation",
+        "concept": "Concept Development",
+        "planning": "Production Planning",
+        "execution": "Execution",
+        "postProduction": "Post Production",
+        "delivery": "Delivery & Support"
+      }
+    },
     "form": {
+      "title": "Start Your Project",
       "name": "Full Name",
       "email": "Email Address",
       "phone": "Phone Number",
-      "service": "Service Interested In",
+      "service": "Service Required",
       "message": "Your Message",
       "submit": "Send Message",
       "sending": "Sending...",
-      "sent": "Message Sent!",
+      "sent": "Sent!",
       "placeholder": {
         "name": "John Doe",
         "email": "john@example.com",
         "phone": "(123) 456-7890",
         "message": "Tell us about your project..."
-      }
+      },
+      "success": "Message sent successfully",
+      "error": "Error sending message",
+      "services": {
+        "filmProduction": "Film Production",
+        "commercialVideos": "Commercial Videos",
+        "animation": "Animation",
+        "photography": "Photography",
+        "postProduction": "Post Production"
+      },
+      "selectService": "Select Service",
+      "loading": "Sending...",
+      "namePlaceholder": "Enter your full name",
+      "emailPlaceholder": "Enter your email",
+      "phonePlaceholder": "Enter your phone number",
+      "messagePlaceholder": "Write your message here..."
     }
   },
   "nav": {

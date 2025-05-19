@@ -67,7 +67,8 @@
     "echo": {
       "title": "صدى",
       "category": "فيديو موسيقي"
-    }
+    },
+    "loadMore": "عرض المزيد"
   },
   "testimonials": {
     "title": "ما يقوله عملاؤنا",
@@ -94,9 +95,22 @@
   "contact": {
     "title": "دعنا نبدع شيئاً مذهلاً معاً",
     "subtitle": "سواء كان لديك مشروع محدد في ذهنك أو تحتاج إلى توجيه في تشكيل رؤيتك، نحن هنا للمساعدة في تحقيق أفكارك",
+    "description": "نحن متحمسون للاستماع إلى أفكارك وتحويلها إلى واقع. اتصل بنا اليوم لبدء رحلتك الإبداعية",
+    "process": {
+      "title": "عملية العمل",
+      "steps": {
+        "Initial Consultation": "استشارة أولية",
+        "Concept Development": "تطوير المفهوم", 
+        "Production Planning": "تخطيط الإنتاج",
+        "Execution": "التنفيذ",
+        "Post-Production": "ما بعد الإنتاج",
+        "Delivery & Support": "التسليم والدعم"
+      }
+    },
     "form": {
+      "title": "ابدأ مشروعك",
       "name": "الاسم الكامل",
-      "email": "البريد الإلكتروني",
+      "email": "البريد الإلكتروني", 
       "phone": "رقم الهاتف",
       "service": "الخدمة المطلوبة",
       "message": "رسالتك",
@@ -108,7 +122,22 @@
         "email": "mohammed@example.com",
         "phone": "0501234567",
         "message": "أخبرنا عن مشروعك..."
-      }
+      },
+      "success": "تم إرسال رسالة بنجاح",
+      "error": "حدث خطأ أثناء إرسال الرسالة",
+      "services": {
+        "filmProduction": "إنتاج فيلم",
+        "commercialVideos": "إعلانات تجارية",
+        "animation": "تأثيرات", 
+        "photography": "تصوير",
+        "postProduction": "مونتاج"
+      },
+      "selectService": "اختر الخدمة",
+      "loading": "جاري الإرسال...",
+      "namePlaceholder": "أدخل اسمك الكامل",
+      "emailPlaceholder": "أدخل بريدك الإلكتروني",
+      "phonePlaceholder": "أدخل رقم هاتفك",
+      "messagePlaceholder": "اكتب رسالتك هنا..."
     }
   },
   "nav": {
