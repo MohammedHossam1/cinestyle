@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { PlayCircle, ChevronDown } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import vedio from '../assets/hero.mp4';
+import { Link } from 'react-router-dom';
 interface HeroSectionProps {
   title?: string;
   subtitle?: string;
@@ -78,7 +79,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 
       <div className="relative z-10 container mx-auto px-4 text-center">
         <h1 
-          className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 max-w-4xl mx-auto leading-tight"
+          className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 max-w-4xl mx-auto leading-tight uppercase"
           style={{ textShadow: '0 2px 4px rgba(0,0,0,0.3)' }}
         >
           {t('hero.title')}
@@ -87,19 +88,19 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           {t('hero.subtitle')}
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <button className="bg-primary-500 hover:bg-primary-600 text-white px-8 py-3 rounded-md font-medium transition-colors flex items-center">
-            <PlayCircle className="mr-2 rtl:ml-2 rtl:mr-0 h-5 w-5" />
+          <Link to="https://www.youtube.com/@cinestyle.media.production" target='_blank' className="bg-main-color hover:bg-main-color/80 text-white px-8 py-3 rounded-md font-medium transition-colors flex items-center">
+            <PlayCircle className="mx-2 h-5 w-5" />
             {t('hero.watchShowreel')}
-          </button>
-          <button className="bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-8 py-3 rounded-md font-medium transition-colors">
+          </Link>
+          <Link to="#contact" className="bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-8 py-3 rounded-md font-medium transition-colors">
             {t('hero.getStarted')}
-          </button>
+          </Link>
         </div>
       </div>
       
       <button 
         onClick={scrollToContent}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white/80 hover:text-white transition-colors z-10 animate-bounce"
+        className="absolute bottom-8  transform  text-white/80 hover:text-white transition-colors z-10 animate-bounce"
       >
         <ChevronDown className="h-8 w-8" />
       </button>

@@ -1,71 +1,128 @@
 import { motion } from "framer-motion";
-import ContactForm from "../components/ContactForm";
+import {
+  Facebook,
+  Instagram,
+  Mail,
+  MapPin,
+  Phone,
+  Youtube
+} from "lucide-react";
 import { useTranslation } from "react-i18next";
-  const processSteps = [
-    "Initial Consultation",
-    "Concept Development",
-    "Production Planning",
-    "Execution",
-    "Post-Production",
-    "Delivery & Support",
-  ];
 
-const Contact = () => {
+export default function Contact() {
   const { t } = useTranslation();
   return (
-    <section
-      id="contact"
-      className="py-16 md:py-24 bg-neutral-100 dark:bg-neutral-800 relative"
-    >
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-primary-500/5" />
-      <div className="container mx-auto px-4 md:px-8 relative">
-        <motion.div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <motion.div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-neutral-900 dark:text-white bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-secondary-500">
+    <section id="contact" className="py-20 bg-neutral-900">
+      <div className="container mx-auto px-4">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="max-w-7xl mx-auto"
+        >
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
               {t("contact.title")}
             </h2>
-            <p className="text-neutral-600 dark:text-neutral-400 mb-8 text-lg">
+            <p className="text-xl text-neutral-400 max-w-2xl mx-auto">
               {t("contact.description")}
             </p>
+          </div>
 
-            <div className="bg-white dark:bg-neutral-700 p-6 rounded-lg shadow-xl backdrop-blur-lg mb-6 border border-neutral-200 dark:border-neutral-600">
-              <h3 className="text-lg font-semibold mb-4 text-neutral-900 dark:text-white">
-                {t("contact.process.title")}
-              </h3>
-              <ul className="space-y-4">
-                {processSteps.map((step, index) => (
-                  <motion.li
-                    key={index}
-                    className="flex items-start group  gap-2"
-                    whileHover={{ x: 10 }}
-                    transition={{
-                      type: "spring",
-                      stiffness: 400,
-                      damping: 10,
-                    }}
-                  >
-                    <div className="bg-gradient-to-r from-primary-500 to-secondary-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs flex-shrink-0 mt-0.5 mr-3 group-hover:scale-110 transition-transform">
-                      {index + 1}
-                    </div>
-                    <span className="text-neutral-700 dark:text-neutral-300 group-hover:text-primary-500 transition-colors">
-                      {t(`contact.process.steps.${step}`)}
-                    </span>
-                  </motion.li>
-                ))}
-              </ul>
-            </div>
-          </motion.div>
+          <div className="grid lg:grid-cols-3 gap-8">
+            <motion.div
+              initial={{ y: 20, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="bg-neutral-800 p-8 lg:rounded-3xl"
+            >
+              <div className="flex flex-col items-center text-center">
+                <MapPin className="h-12 w-12 text-main-color  mb-4" />
+                <h3 className="text-xl font-semibold text-white mb-2">
+                  {t("contact.process.steps.consultation")}
+                </h3>
+                <p className="text-neutral-400">Mansoura , galaa street</p>
+              </div>
+            </motion.div>
 
-          <motion.div className="bg-white dark:bg-neutral-700 rounded-xl shadow-xl p-6 md:p-8 backdrop-blur-lg border border-neutral-200 dark:border-neutral-600">
-            <h3 className="text-2xl font-bold mb-6 text-neutral-900 dark:text-white bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-secondary-500">
-              {t("contact.form.title")}
+            <motion.div
+              initial={{ y: 20, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+              className="bg-neutral-800 p-8 lg:rounded-3xl"
+            >
+              <div className="flex flex-col items-center text-center">
+                <Phone className="h-12 w-12 text-main-color  mb-4" />
+                <h3 className="text-xl font-semibold text-white mb-2">
+                  {t("contact.process.steps.concept")}
+                </h3>
+                <p className="text-neutral-400">+20 12 00845393</p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ y: 20, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 }}
+              className="bg-neutral-800 p-8 lg:rounded-3xl"
+            >
+              <div className="flex flex-col items-center text-center">
+                <Mail className="h-12 w-12 text-main-color  mb-4" />
+                <h3 className="text-xl font-semibold text-white mb-2">
+                  {t("contact.process.steps.planning")}
+                </h3>
+                <p className="text-neutral-400">
+                  cinestyle.mediaproduction@gmail.com{" "}
+                </p>
+              </div>
+            </motion.div>
+          </div>
+
+          <motion.div
+            initial={{ y: 20, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.5 }}
+            className="mt-16 bg-neutral-800 p-10 lg:rounded-3xl"
+          >
+            <h3 className="text-2xl font-bold text-white text-center mb-8">
+              {t("contact.process.title")}
             </h3>
-            <ContactForm />
+            <div className="flex justify-center gap-8">
+              <a
+                href="https://www.instagram.com/cinestyle.mp?igsh=Yzk2dDBkcHNocDl6"
+                target="_blank"
+                className="group flex items-center gap-3 text-neutral-400 hover:text-main-color transition-colors"
+              >
+                <Instagram className="h-8 w-8" />
+                <span className="hidden md:block">cinestyle.mp</span>
+              </a>
+              <a
+                href="https://www.facebook.com/share/16QbXJuG41"
+                target="_blank"
+                className="group flex items-center gap-3 text-neutral-400 hover:text-main-color transition-colors"
+              >
+                <Facebook className="h-8 w-8" />
+                <span className="hidden md:block">
+                  Cinestyle media production
+                </span>
+              </a>
+              <a
+                href="https://youtube.com/@cinestyle.media.production?si=-VYAD_WrNimmLP5T"
+                target="_blank"
+                className="group flex items-center gap-3 text-neutral-400 hover:text-main-color transition-colors"
+              >
+                <Youtube className="h-8 w-8" />
+                <span className="hidden md:block">CINESTYLE MEDIA PRODUCTION</span>
+              </a>
+            </div>
           </motion.div>
         </motion.div>
       </div>
     </section>
   );
-};
-
-export default Contact;
+}

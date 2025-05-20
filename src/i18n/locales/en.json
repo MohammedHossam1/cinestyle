@@ -1,7 +1,11 @@
 {
   "hero": {
-    "title": "Captivating Stories Through Cinematic Excellence",
-    "subtitle": "Award-winning film and media production company crafting visual experiences that leave lasting impressions"
+    "title": "Cinestyle media production",
+    "subtitle": "Award-winning film and media production company crafting visual experiences that leave lasting impressions",
+    "button": "Explore More",
+    "getStarted": "Get Started",
+    "watchVideo": "Watch Video",
+    "watchShowreel": "Watch Showreel"
   },
   "services": {
     "title": "Our Services", 
@@ -40,31 +44,40 @@
       "description": "Professional audio content production that reaches your audience in an impactful and effective way"
     }
   },
+  "about": {
+    "title": "About Us",
+    "description": "At CineStyle, we tell stories with soul. We transform ideas into powerful visuals. We blend creativity, emotion, and storytelling in every frame. More than production, we create experiences that stay with you.",
+    "ourWhy": "Our Why",
+    "whyDescription": "To spark creativity and enhance storytelling through stunning visuals, delivering unforgettable experiences",
+    "beyondFrame": "Beyond the Frame",
+    "frameDescription": "We design visual tales that captivate, inspire, and celebrate the power of artistic expression"
+  },
   "projects": {
     "title": "Featured Projects",
     "description": "Explore our award-winning portfolio of work across various industries and formats",
     "viewAll": "View All Projects",
     "etherealDreams": {
-      "title": "Ethereal Dreams",
-      "category": "Short Film"
+      "title": "Social media interviews",
+      "category": "Social media interviews"
     },
     "novaAthletics": {
-      "title": "Nova Athletics",
-      "category": "Commercial"
+      "title": "Promo Videos",
+      "category": "Promo Videos"
     },
     "horizonTech": {
-      "title": "Horizon Tech",
+      "title": "Commercial Video production",
       "category": "Corporate Video"
     },
     "wilderness": {
-      "title": "Wilderness",
+      "title": "CODESHIELD SOLUTIONS REEL 6",
       "category": "Documentary"
     },
     "echo": {
-      "title": "Echo",
+      "title": "CODESHIELD SOLUTIONS REEL 2",
       "category": "Music Video"
     },
-    "loadMore": "Load More"
+    "loadMore": "Load More",
+    "noMore": "No More"
   },
   "testimonials": {
     "title": "What Our Clients Say",
@@ -93,14 +106,14 @@
     "subtitle": "Whether you have a specific project in mind or need guidance in shaping your vision, we're here to help bring your ideas to life",
     "description": "We're excited to hear your ideas and turn them into reality. Contact us today to start your creative journey",
     "process": {
-      "title": "Work Process",
+      "title": "Social Media Platforms",
       "steps": {
-        "consultation": "Initial Consultation",
-        "concept": "Concept Development",
-        "planning": "Production Planning",
-        "execution": "Execution",
-        "postProduction": "Post Production",
-        "delivery": "Delivery & Support"
+        "consultation": "Address",
+        "concept": "Phone Number",
+        "planning": "Email",
+        "execution": "Social Media",
+        "postProduction": "Delivery & Support"
+
       }
     },
     "form": {
@@ -151,6 +164,12 @@
     "rights": "All rights reserved",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service",
-    "sitemap": "Sitemap"
+    "sitemap": "Sitemap",
+    "copyright": "All rights reserved"
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "description": "We couldn't find the page you were looking for. It might be a broken link or the page may have been removed.",
+    "back": "Back "
   }
 }

@@ -1,63 +1,75 @@
-import React from 'react';
-import { ExternalLink } from 'lucide-react';
+import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
-interface ProjectCardProps {
+interface Project {
   title: string;
-  category: string;
   videoUrl: string;
-  featured?: boolean;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({
-  title,
-  category,
-  videoUrl,
-  featured = false,
-}) => {
-  // Convert YouTube URL to embed URL
-  const getEmbedUrl = (url: string) => {
-    const videoId = url.split('v=')[1];
-    return `https://www.youtube.com/embed/${videoId}`;
+interface ProjectCardProps {
+  project: Project;
+  index: number;
+  isLoading: boolean;
+  onLoad: () => void;
+}
+
+export const ProjectCard = ({ project, index, isLoading, onLoad }: ProjectCardProps) => {
+  const { t } = useTranslation();
+
+  const getEmbedUrl = (url: string, autoplay: boolean = false) => {
+    let videoId = "";
+  
+    if (url.includes("v=")) {
+      videoId = url.split("v=")[1].split("&")[0];
+    } else if (url.includes("youtu.be/")) {
+      videoId = url.split("youtu.be/")[1].split("?")[0];
+    } else if (url.includes("youtube.com/shorts/")) {
+      videoId = url.split("shorts/")[1].split("?")[0];
+    }
+  
+    return `https://www.youtube.com/embed/${videoId}${
+      autoplay ? "?autoplay=1" : ""
+    }`;
   };
 
   return (
-    <div className={`group relative overflow-hidden rounded-lg ${featured ? 'md:col-span-2 md:row-span-2' : ''}`}>
-      {/* Video iframe */}
-      <div className="aspect-video h-full w-full">
-        <iframe
-          src={getEmbedUrl(videoUrl)}
-          title={title}
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          className="w-full h-full"
-        />
-      </div>
-      
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 transition-opacity group-hover:opacity-90" />
-      
-      {/* Content */}
-      <div className="absolute inset-0 flex flex-col justify-end p-6">
-        <div className="transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-          <div className="text-xs font-medium text-primary-400 uppercase tracking-wider mb-2">
-            {category}
-          </div>
-          <h3 className="text-white text-xl md:text-2xl font-bold mb-4">
-            {title}
-          </h3>
-          <a
-            href={videoUrl}
-            target="_blank"
-            rel="noopener noreferrer" 
-            className="text-white/80 hover:text-white text-sm font-medium transition-colors flex items-center gap-2"
-          >
-            Watch on YouTube
-            <ExternalLink className="h-4 w-4" />
-          </a>
+    <motion.div
+      key={index}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: index * 0.1 }}
+      className="group relative bg-gradient-to-br from-main-color via-main-color/90 to-main-color/60 lg:rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden transform hover:-translate-y-2"
+    >
+      <div className="relative">
+        <div className="aspect-video lg:rounded-t-2xl overflow-hidden  ">
+          {isLoading && (
+            <div className="absolute inset-0 bg-neutral-200  animate-pulse z-10" />
+          )}
+          <iframe
+            src={getEmbedUrl(project.videoUrl)}
+            title={t(project.title)}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            className={`w-full h-full ${
+              isLoading ? "invisible" : "visible"
+            }`}
+            onLoad={onLoad}
+          />
         </div>
       </div>
-    </div>
+
+      <div className="p-4 lg:p-6 transition-all  group-hover:bg-main-color/70  ">
+        <Link
+          to={project.videoUrl}
+          target="_blank"
+          className="block text-xl lg:text-2xl font-bold    "
+        >
+          <span className="inline-block w-2 h-2 mx-2 bg-primary-500 rounded-full"></span>
+          {t(`${project.title}.title`)}
+        </Link>
+      </div>
+    </motion.div>
   );
 };
-
-export default ProjectCard;

@@ -9,7 +9,15 @@ import {
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import ServiceCard from "../components/ServiceCard";
-const Services = () => {
+import photography from "../assets/services/photography.jpg";
+import writing from "../assets/services/writing.jpg";
+import promo from "../assets/services/promo.jpg";
+import wedding from "../assets/services/wedding.jpg";
+import social from "../assets/services/social.jpg";
+import edit from "../assets/services/edit.jpg";
+import event from "../assets/services/event.jpg";
+import podcast from "../assets/services/podcast.jpg";
+export default function Services() {
   const { t } = useTranslation();
 
   const services = [
@@ -17,53 +25,61 @@ const Services = () => {
       title: "services.productsPhotography",
       icon: Film,
       iconBgColor: "bg-primary-500/10",
+      bgImage: photography
     },
     {
-      title: "services.writingContent",
+      title: "services.writingContent", 
       icon: VideoIcon,
       iconBgColor: "bg-secondary-500/10",
+      bgImage: writing
     },
     {
       title: "services.promoVedios",
       icon: Camera,
       iconBgColor: "bg-accent-500/10",
+      bgImage: promo
     },
     {
       title: "services.weddingVedios",
       icon: Scissors,
       iconBgColor: "bg-success-500/10",
+      bgImage: wedding
     },
     {
       title: "services.socialMedia",
       icon: Music,
       iconBgColor: "bg-warning-500/10",
+      bgImage: social
     },
     {
       title: "services.editing",
       icon: Palette,
       iconBgColor: "bg-error-500/10",
+      bgImage: edit
     },
     {
       title: "services.eventCoverAge",
       icon: Palette,
       iconBgColor: "bg-error-500/10",
+      bgImage: event
     },
     {
       title: "services.podcast",
       icon: Palette,
       iconBgColor: "bg-error-500/10",
+        bgImage: podcast
     },
   ];
 
   return (
     <section className="py-16 md:py-24 relative" id="services">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-neutral-100/50 dark:to-neutral-800/50" />
+      <div className="absolute inset-0" />
       <div className="container mx-auto px-4 md:px-8 relative">
         <motion.div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-neutral-900 dark:text-white bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-secondary-500">
+          <h2 className="text-3xl lg:text-5xl font-bold mb-4 ">
             {t("services.title")}
           </h2>
-          <p className="text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto text-lg">
+          <p className="max-w-2xl mx-auto text-lg">
             {t("services.description")}
           </p>
         </motion.div>
@@ -74,18 +90,19 @@ const Services = () => {
               <ServiceCard
                 title={t(`${service.title}.title`)}
                 description={t(`${service.title}.description`)}
-                icon={service.icon}
                 iconBgColor={service.iconBgColor}
                 className="hover:scale-105 transition-transform duration-300"
+                style={{
+                  backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.9)), url(${service.bgImage})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center'
+                }}
               />
             </motion.div>
           ))}
         </motion.div>
 
-  
       </div>
     </section>
   );
 };
-
-export default Services;
