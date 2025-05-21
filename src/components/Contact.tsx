@@ -3,6 +3,7 @@ import {
   Facebook,
   Instagram,
   Mail,
+  Twitter ,
   MapPin,
   Phone,
   Youtube
@@ -59,7 +60,7 @@ export default function Contact() {
                 <h3 className="text-xl font-semibold text-white mb-2">
                   {t("contact.process.steps.concept")}
                 </h3>
-                <p className="text-neutral-400">+20 12 00845393</p>
+                <p className="text-neutral-400" dir="ltr">+20 12 00845393</p>
               </div>
             </motion.div>
 
@@ -100,6 +101,14 @@ export default function Contact() {
               >
                 <Instagram className="h-8 w-8" />
                 <span className="hidden md:block">cinestyle.mp</span>
+              </a>
+              <a
+                href="https://x.com/CineS89369?t=fmp_9iXBP6XQoSldpVzuuQ&s=09"
+                target="_blank"
+                className="group flex items-center gap-3 text-neutral-400 hover:text-main-color transition-colors"
+              >
+                <Twitter className="h-8 w-8" />
+                <span className="hidden md:block">CineStyle</span>
               </a>
               <a
                 href="https://www.facebook.com/share/16QbXJuG41"

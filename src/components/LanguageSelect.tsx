@@ -12,9 +12,7 @@ export default function LanguageSelect() {
       newLang === "ar" ? "rtl" : "ltr"
     );
     document.documentElement.setAttribute("lang", newLang);
-    console.log(e.target.value,"e");
   };
-  console.log(i18n.language,"i18n");
   return (
     <div className="flex items-center space-x-2 rtl:space-x-reverse">
       <select

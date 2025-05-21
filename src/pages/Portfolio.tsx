@@ -2,27 +2,20 @@ import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { ProjectCard } from "../components/ProjectCard";
 import { useEffect, useState } from "react";
+import { getProjects } from "../lib/subaMethods";
 
 const Portfolio = () => {
   const { t } = useTranslation();
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [hasMore, setHasMore] = useState(true);
 
   const baseProjects = [
     {
-      title: "projects.etherealDreams",
-      videoUrl:
-        "https://youtube.com/shorts/h158uLdBE58?si=RYHhp855tX5lCtIL",
-    },
-    {
-      title: "projects.novaAthletics", 
-      videoUrl: "https://youtu.be/RE9K05LLy9Q?si=kDt7U2Xc4X0Tz8BP",
-    },
-    {
-      title: "projects.horizonTech",
-      videoUrl:
-        "https://youtube.com/shorts/h158uLdBE58?si=RYHhp855tX5lCtIL",
+      titleAr: "",
+      titleEn: "",
+      link: "",
     }
   ];
 
@@ -39,26 +32,65 @@ const Portfolio = () => {
     });
   };
 
-  const loadMoreProjects = () => {
-    setLoading(true);
-    // Simulate API call delay
-    setTimeout(() => {
-      const newProjects = [...projects, ...baseProjects];
-      setProjects(newProjects);
-      setLoadingStates(prev => [...prev, ...Array(baseProjects.length).fill(true)]);
-      setPage(prev => prev + 1);
-      // Stop loading after 5 pages
-      if (page >= 5) {
+  const loadMoreProjects = async () => {
+    try {
+      setLoading(true);
+      setError(null);
+      const newData = await getProjects();
+      if (!newData || newData.length === 0) {
         setHasMore(false);
+      } else {
+        const startIndex = (page - 1) * 6;
+        const endIndex = startIndex + 6;
+        const paginatedData = newData.slice(startIndex, endIndex);
+        
+        if (paginatedData.length === 0) {
+          setHasMore(false);
+        } else {
+          setProjects(prev => [...prev, ...paginatedData]);
+          setLoadingStates(prev => [...prev, ...Array(paginatedData.length).fill(true)]);
+          setPage(prev => prev + 1);
+        }
       }
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Failed to load more projects");
+      console.error("Error loading more projects:", err);
+    } finally {
       setLoading(false);
-    }, 1000);
+    }
   };
 
   useEffect(() => {
+    const fetchInitialProjects = async () => {
+      try {
+        setLoading(true);
+        setError(null);
+        const data = await getProjects();
+        if (!data) {
+          throw new Error("Failed to fetch initial projects");
+        }
+        const initialProjects = data.slice(0, 6);
+        setProjects(initialProjects);
+        setLoadingStates(Array(initialProjects.length).fill(true));
+        setHasMore(data.length > 6);
+        setPage(2);
+      } catch (err) {
+        setError(err instanceof Error ? err.message : "Failed to fetch projects");
+        console.error("Error fetching initial projects:", err);
+        setProjects(baseProjects);
+        setLoadingStates(Array(baseProjects.length).fill(true));
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchInitialProjects();
+  }, []);
+
+  useEffect(() => {
     const handleScroll = () => {
-      if (loading || !hasMore) return;
-      
+      if (loading || !hasMore || error) return;
+
       const scrollHeight = document.documentElement.scrollHeight;
       const scrollTop = window.scrollY;
       const clientHeight = window.innerHeight;
@@ -68,9 +100,20 @@ const Portfolio = () => {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [loading, hasMore]);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [loading, hasMore, error]);
+
+  if (error && projects.length === 0) {
+    return (
+      <div className="bg-neutral-900 min-h-screen py-32 flex items-center justify-center">
+        <div className="text-red-500 text-center">
+          <h2 className="text-2xl font-bold mb-4">{t("common.error")}</h2>
+          <p>{error}</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="bg-neutral-900 min-h-screen py-32">
@@ -89,10 +132,16 @@ const Portfolio = () => {
           </p>
         </motion.div>
 
+        {error && (
+          <div className="text-red-500 text-center mb-8">
+            <p>{error}</p>
+          </div>
+        )}
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <ProjectCard
-              key={`${index}-${project.title}`}
+              key={index}
               project={project}
               index={index}
               isLoading={loadingStates[index]}
@@ -107,7 +156,7 @@ const Portfolio = () => {
           </div>
         )}
 
-        {!hasMore && (
+        {!hasMore && !loading && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}

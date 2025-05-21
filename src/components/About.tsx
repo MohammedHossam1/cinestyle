@@ -7,7 +7,7 @@ const About = () => {
   const { t } = useTranslation();
 
   return (
-    <section id="about" className="min-h-screen py-24 bg-gradient-to-br from-neutral-900 via-neutral-950 to-black text-white">
+    <section id="about" className="min-h-screen py-24 bg-gradient-to-br text-white">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

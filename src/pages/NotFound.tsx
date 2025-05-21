@@ -80,6 +80,7 @@ const { t } = useTranslation();
         <div className="flex flex-col sm:flex-row justify-center gap-4">
           <Link
             to="/"
+            aria-label="Go to home"
             className="flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-main-color to-main-color/80 text-white font-medium rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105"
           >
             <Home size={20} />
@@ -87,6 +88,7 @@ const { t } = useTranslation();
           </Link>
 
           <button
+            aria-label="Go back"
             onClick={() => navigate(-1)}
             className="flex items-center justify-center gap-2 px-6 py-3 bg-white border border-gray-300 text-gray-700 font-medium rounded-lg shadow-sm hover:border-main-color hover:text-main-color transition-all duration-300"
           >

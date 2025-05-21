@@ -57,10 +57,11 @@ const Navbar: React.FC = () => {
         <div className="flex justify-between items-center">
           <Link 
             to="/" 
+            aria-label="Go to home"
             className="flex items-center space-x-2 rtl:space-x-reverse text-white "
           >
           
-            <Image src={logo} alt="cinsetyle" className={` max-lg:w-12 ${isScrolled ? 'w-12' : 'w-32 '}`} />
+            <Image  src={logo} alt="cinsetyle" className={` max-lg:w-12 ${isScrolled ? 'w-12' : 'w-32 '}`} />
           </Link>
 
           {/* Desktop Navigation */}
@@ -68,6 +69,7 @@ const Navbar: React.FC = () => {
             {navItems.map((item) => (
               <Link
                 key={item.key}
+                aria-label={`Go to ${item.key}`}
                 to={item.path}
                 className="text-lg font-medium text-white/80 hover:text-main-color transition-colors"
                 onClick={() => handleNavClick(item.path)}
@@ -80,6 +82,7 @@ const Navbar: React.FC = () => {
 
           {/* Mobile Navigation Toggle */}
           <button
+            aria-label="Toggle navigation menu"
             onClick={() => setIsOpen(!isOpen)}
             className="md:hidden text-white focus:outline-none"
           >
@@ -97,6 +100,7 @@ const Navbar: React.FC = () => {
             {navItems.map((item, index) => (
               <Link
                 key={item.key}
+                aria-label={`Go to ${item.key}`}
                 to={item.path}
                 className={`text-base font-medium text-white/80 hover:text-main-color transition-colors py-2 transform ${
                   isOpen ? 'translate-x-0 opacity-100' : 'translate-x-4 opacity-0'

@@ -1,35 +1,21 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { ProjectCard } from "./ProjectCard";
-
+import { getHomeProjects } from "../lib/subaMethods";
+import { IProject } from "../types/Index";
 
 export default function Projects() {
   const { t, i18n } = useTranslation();
   const isAr = i18n.language === "ar";
 
-  const projects = [
-    {
-      title: "projects.etherealDreams",
-      videoUrl:
-        "https://youtube.com/shorts/h158uLdBE58?si=RYHhp855tX5lCtIL",
-    },
-    {
-      title: "projects.novaAthletics",
-      videoUrl: "https://youtu.be/RE9K05LLy9Q?si=kDt7U2Xc4X0Tz8BP",
-    },
-    {
-      title: "projects.horizonTech",
-      videoUrl:
-        "https://youtube.com/shorts/h158uLdBE58?si=RYHhp855tX5lCtIL",
-    }
-  ];
+  const [projects, setProjects] = useState<IProject[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  const [loadingStates, setLoadingStates] = useState<boolean[]>(
-    Array(projects.length).fill(true)
-  );
+  const [loadingStates, setLoadingStates] = useState<boolean[]>([]);
 
   const handleLoad = (index: number) => {
     setLoadingStates((prev) => {
@@ -38,6 +24,53 @@ export default function Projects() {
       return updated;
     });
   };
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        setLoading(true);
+        setError(null);
+        const data = await getHomeProjects();
+        console.log(data);  
+        if (!data || data.length === 0) {
+          setError("No projects found");
+          return;
+        }
+        const initialProjects = data.slice(0, 3);
+        setProjects(initialProjects);
+        setLoadingStates(Array(initialProjects.length).fill(true));
+      } catch (err) {
+        setError(err instanceof Error ? err.message : "Failed to fetch projects");
+        console.error("Error fetching projects:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProjects();
+  }, []);
+
+  if (loading) {
+    return (
+      <section className="py-16 md:py-24">
+        <div className="container mx-auto px-4 md:px-8 flex justify-center items-center min-h-[50vh]">
+          <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-main-color border-r-transparent"></div>
+        </div>
+      </section>
+    );
+  }
+
+  if (error) {
+    return (
+      <section className="py-16 md:py-24">
+        <div className="container mx-auto px-4 md:px-8 flex justify-center items-center min-h-[50vh]">
+          <div className="text-red-500 text-center">
+            <p>{error}</p>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="py-16 md:py-24 ">
@@ -57,20 +90,34 @@ export default function Projects() {
         </motion.div>
 
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10"
+          className="space-y-4"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
         >
-          {projects.map((project, index) => (
-            <ProjectCard
-              key={index}
-              project={project}
-              index={index}
-              isLoading={loadingStates[index]}
-              onLoad={() => handleLoad(index)}
-            />
-          ))}
+          {projects.length > 0 && (
+            <div className="">
+              <ProjectCard
+                key={0}
+                project={projects[0]}
+                aspect={false}
+                index={0}
+                isLoading={loadingStates[0]}
+                onLoad={() => handleLoad(0)}
+              />
+            </div>
+          )}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {projects.slice(1, 3).map((project, index) => (
+              <ProjectCard
+                key={index + 1}
+                project={project}
+                index={index + 1}
+                isLoading={loadingStates[index + 1]}
+                onLoad={() => handleLoad(index + 1)}
+              />
+            ))}
+          </div>
         </motion.div>
 
         <motion.div
@@ -81,6 +128,7 @@ export default function Projects() {
         >
           <Link
             to="/portfolio"
+            aria-label="Go to portfolio"
             className="group flex items-center gap-3 px-8 py-4 bg-main-color text-white rounded-full font-semibold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
           >
             {t("projects.loadMore")}
@@ -96,4 +144,4 @@ export default function Projects() {
       </div>
     </section>
   );
-};
+}
