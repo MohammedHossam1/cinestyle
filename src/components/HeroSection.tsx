@@ -3,6 +3,7 @@ import { PlayCircle, ChevronDown } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import vedio from "../assets/hero.mp4";
 import { Link } from "react-router-dom";
+import poster from "../assets/vedio-pre.webp";
 interface HeroSectionProps {
   title?: string;
   subtitle?: string;
@@ -59,12 +60,15 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         {videoUrl && (
           <video
             ref={videoRef}
-            className="w-full h-full object-cover  opacity-60 "
+            className="w-full h-full object-cover opacity-60"
             loop
             muted
             playsInline
+            preload="auto" 
+            poster={poster} 
           >
-            <source src={videoUrl} type="video/mp4" />
+            <source src={vedio} type="video/mp4" />
+            {t("hero.title")}
           </video>
         )}
         {!videoUrl && imageUrl && (
