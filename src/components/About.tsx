@@ -43,9 +43,9 @@ const About = () => {
             <div className="flex items-center justify-center mb-6">
               <Lightbulb className="w-12 h-12 text-main-color" />
             </div>
-            <h3 className="text-3xl font-semibold text-center mb-4">
+            <h2 className="text-3xl font-semibold text-center mb-4">
               {t("about.ourWhy")}
-            </h3>
+            </h2>
             <p className="text-lg text-neutral-300 text-center leading-relaxed">
               {t("about.whyDescription")}
             </p>
@@ -61,9 +61,9 @@ const About = () => {
             <div className="flex items-center justify-center mb-6">
               <Eye className="w-12 h-12 text-main-color" />
             </div>
-            <h3 className="text-3xl font-semibold text-center mb-4">
+            <h2 className="text-3xl font-semibold text-center mb-4">
               {t("about.beyondFrame")}
-            </h3>
+            </h2>
             <p className="text-lg text-neutral-300 text-center leading-relaxed">
               {t("about.frameDescription")}
             </p>

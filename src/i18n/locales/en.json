@@ -154,11 +154,10 @@
     "services": "Services",
     "portfolio": "Portfolio",
     "about": "About",
-    "blog": "Blog",
     "contact": "Contact"
   },
   "footer": {
-    "about": "Creating cinematic experiences and visual stories that captivate audiences and elevate brands since 2010",
+    "about": "Creating cinematic experiences and visual stories that captivate audiences and elevate brands ",
     "quickLinks": "Quick Links",
     "contactUs": "Contact Us",
     "rights": "All rights reserved",

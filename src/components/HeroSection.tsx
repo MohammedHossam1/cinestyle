@@ -110,6 +110,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 
       <button
         onClick={scrollToContent}
+        id="scroll-down"
+        aria-label="Scroll down"
         className="absolute bottom-8  transform  text-white/80 hover:text-white transition-colors z-10 animate-bounce"
       >
         <ChevronDown className="h-8 w-8" />

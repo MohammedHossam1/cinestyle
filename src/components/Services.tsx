@@ -1,75 +1,11 @@
 import { motion } from "framer-motion";
-import {
-    Camera,
-    Film,
-    Music,
-    Palette,
-    Scissors,
-    VideoIcon
-} from "lucide-react";
 import { useTranslation } from "react-i18next";
 import ServiceCard from "../components/ServiceCard";
-import photography from "../assets/services/photography.jpg";
-import writing from "../assets/services/writing.jpg";
-import promo from "../assets/services/promo.jpg";
-import wedding from "../assets/services/wedding.jpg";
-import social from "../assets/services/social.jpg";
-import edit from "../assets/services/edit.jpg";
-import event from "../assets/services/event.jpg";
-import podcast from "../assets/services/podcast.jpg";
+import { ServicesData } from "../data/Index";
 export default function Services() {
   const { t } = useTranslation();
 
-  const services = [
-    {
-      title: "services.productsPhotography",
-      icon: Film,
-      iconBgColor: "bg-primary-500/10",
-      bgImage: photography
-    },
-    {
-      title: "services.writingContent", 
-      icon: VideoIcon,
-      iconBgColor: "bg-secondary-500/10",
-      bgImage: writing
-    },
-    {
-      title: "services.promoVedios",
-      icon: Camera,
-      iconBgColor: "bg-accent-500/10",
-      bgImage: promo
-    },
-    {
-      title: "services.weddingVedios",
-      icon: Scissors,
-      iconBgColor: "bg-success-500/10",
-      bgImage: wedding
-    },
-    {
-      title: "services.socialMedia",
-      icon: Music,
-      iconBgColor: "bg-warning-500/10",
-      bgImage: social
-    },
-    {
-      title: "services.editing",
-      icon: Palette,
-      iconBgColor: "bg-error-500/10",
-      bgImage: edit
-    },
-    {
-      title: "services.eventCoverAge",
-      icon: Palette,
-      iconBgColor: "bg-error-500/10",
-      bgImage: event
-    },
-    {
-      title: "services.podcast",
-      icon: Palette,
-      iconBgColor: "bg-error-500/10",
-        bgImage: podcast
-    },
-  ];
+
 
   return (
     <section className="py-16 md:py-24 relative" id="services">
@@ -85,7 +21,7 @@ export default function Services() {
         </motion.div>
 
         <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {services.map((service, index) => (
+          {ServicesData.map((service, index) => (
             <motion.div key={index}>
               <ServiceCard
                 title={t(`${service.title}.title`)}

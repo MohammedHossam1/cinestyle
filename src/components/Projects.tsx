@@ -31,7 +31,6 @@ export default function Projects() {
         setLoading(true);
         setError(null);
         const data = await getHomeProjects();
-        console.log(data);  
         if (!data || data.length === 0) {
           setError("No projects found");
           return;
