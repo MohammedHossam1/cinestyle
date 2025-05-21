@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { IProject } from "../types/Index";
+import { useTranslation } from "react-i18next";
 
 interface ProjectCardProps {
   project: IProject;
@@ -17,6 +18,9 @@ export const ProjectCard = ({
   onLoad,
   aspect=true,
 }: ProjectCardProps) => {
+   
+  const { i18n } = useTranslation();
+  const isAr =  i18n.language === "ar";
 
   const getEmbedUrl = (url: string, autoplay: boolean = false) => {
     let videoId = "";
@@ -50,7 +54,7 @@ export const ProjectCard = ({
           )}
           <iframe
             src={getEmbedUrl(project.link)}
-            title={project.titleEn}
+            title={isAr ? project.titleAr : project.titleEn}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
             className={`w-full h-full ${isLoading ? "invisible" : "visible"}`}
@@ -62,12 +66,12 @@ export const ProjectCard = ({
       <div className="p-4 lg:p-6 transition-all  group-hover:bg-main-color/70  ">
         <Link
           to={project.link}
-          aria-label={`Watch ${project.titleEn}`}
+          aria-label={`Watch ${isAr ? project.titleAr : project.titleEn}`}
           target="_blank"
           className="block text-xl lg:text-2xl font-bold    "
         >
           <span className="inline-block w-2 h-2 mx-2 bg-primary-500 rounded-full"></span>
-          {project.titleEn}
+          {isAr ? project.titleAr : project.titleEn}
         </Link>
       </div>
     </motion.div>
