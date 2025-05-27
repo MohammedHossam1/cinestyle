@@ -16,44 +16,31 @@ const Portfolio = () => {
       titleAr: "",
       titleEn: "",
       link: "",
-    }
+    },
   ];
 
   const [projects, setProjects] = useState(baseProjects);
-  const [loadingStates, setLoadingStates] = useState<boolean[]>(
-    Array(projects.length).fill(true)
-  );
-
-  const handleLoad = (index: number) => {
-    setLoadingStates((prev) => {
-      const updated = [...prev];
-      updated[index] = false;
-      return updated;
-    });
-  };
 
   const loadMoreProjects = async () => {
     try {
       setLoading(true);
       setError(null);
-      const newData = await getProjects();
+      const { data: newData, count } = await getProjects(page, 6);
+
       if (!newData || newData.length === 0) {
         setHasMore(false);
       } else {
-        const startIndex = (page - 1) * 6;
-        const endIndex = startIndex + 6;
-        const paginatedData = newData.slice(startIndex, endIndex);
-        
-        if (paginatedData.length === 0) {
+        setProjects((prev) => [...prev, ...newData]);
+        setPage((prev) => prev + 1);
+        // إذا وصلنا لآخر عنصر
+        if (count !== null && projects.length + newData.length >= count) {
           setHasMore(false);
-        } else {
-          setProjects(prev => [...prev, ...paginatedData]);
-          setLoadingStates(prev => [...prev, ...Array(paginatedData.length).fill(true)]);
-          setPage(prev => prev + 1);
         }
       }
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Failed to load more projects");
+      setError(
+        err instanceof Error ? err.message : "Failed to load more projects"
+      );
       console.error("Error loading more projects:", err);
     } finally {
       setLoading(false);
@@ -65,20 +52,19 @@ const Portfolio = () => {
       try {
         setLoading(true);
         setError(null);
-        const data = await getProjects();
+        const { data, count } = await getProjects(1, 6);
         if (!data) {
           throw new Error("Failed to fetch initial projects");
         }
-        const initialProjects = data.slice(0, 6);
-        setProjects(initialProjects);
-        setLoadingStates(Array(initialProjects.length).fill(true));
-        setHasMore(data.length > 6);
+        setProjects(data);
+        setHasMore(count !== null && data.length < count);
         setPage(2);
       } catch (err) {
-        setError(err instanceof Error ? err.message : "Failed to fetch projects");
+        setError(
+          err instanceof Error ? err.message : "Failed to fetch projects"
+        );
         console.error("Error fetching initial projects:", err);
         setProjects(baseProjects);
-        setLoadingStates(Array(baseProjects.length).fill(true));
       } finally {
         setLoading(false);
       }
@@ -94,8 +80,10 @@ const Portfolio = () => {
       const scrollHeight = document.documentElement.scrollHeight;
       const scrollTop = window.scrollY;
       const clientHeight = window.innerHeight;
-
-      if (scrollHeight - scrollTop <= clientHeight * 1.5) {
+      console.log(scrollHeight, "scrollHeight");
+      console.log(scrollTop, "scrollTop");
+      console.log(clientHeight, "clientHeight");
+      if (scrollHeight - scrollTop - clientHeight <= 900) {
         loadMoreProjects();
       }
     };
@@ -140,13 +128,7 @@ const Portfolio = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <ProjectCard
-              key={index}
-              project={project}
-              index={index}
-              isLoading={loadingStates[index]}
-              onLoad={() => handleLoad(index)}
-            />
+            <ProjectCard key={index} project={project} index={index} />
           ))}
         </div>
 

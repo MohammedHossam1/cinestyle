@@ -1,18 +1,23 @@
 import { supabase } from "./subabase";
 
-export const getProjects = async () => {
-  const { data, error } = await supabase
+export const getProjects = async (page = 1, limit = 6) => {
+  const from = (page - 1) * limit;
+  const to = from + limit - 1;
+
+  const { data, error, count } = await supabase
     .from("projects")
-    .select("*")
+    .select("*", { count: "exact" }) 
+    .range(from, to)
     .order("created_at", { ascending: false });
 
   if (error) {
     console.error("Error fetching projects:", error);
-    return [];
+    return { data: [], count: 0 };
   }
 
-  return data;
+  return { data, count };
 };
+
 
 export const getHomeProjects = async () => {
   const { data, error } = await supabase

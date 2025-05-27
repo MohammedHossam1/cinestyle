@@ -61,7 +61,7 @@ const Navbar: React.FC = () => {
             className="flex items-center space-x-2 rtl:space-x-reverse text-white "
           >
           
-            <Image  src={logo} alt="cinsetyle" className={` max-lg:w-12 ${isScrolled ? 'w-12' : 'w-32 '}`} />
+            <Image  src={logo} alt="cinsetyle" className={` max-lg:w-14 ${isScrolled ? 'w-14' : 'w-32 '}`} />
           </Link>
 
           {/* Desktop Navigation */}

@@ -22,7 +22,12 @@ export default function Services() {
 
         <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {ServicesData.map((service, index) => (
-            <motion.div key={index}>
+            <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: index * 0.1 }}
+            key={index}>
               <ServiceCard
                 title={t(`${service.title}.title`)}
                 description={t(`${service.title}.description`)}

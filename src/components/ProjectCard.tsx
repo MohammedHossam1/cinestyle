@@ -7,15 +7,11 @@ interface ProjectCardProps {
   project: IProject;
   index: number;
   aspect?: boolean;
-  isLoading: boolean;
-  onLoad: () => void;
 }
 
 export const ProjectCard = ({
   project,
   index,
-  isLoading,
-  onLoad,
   aspect=true,
 }: ProjectCardProps) => {
    
@@ -48,17 +44,14 @@ export const ProjectCard = ({
       className={`group relative bg-gradient-to-br from-main-color via-main-color/90 to-main-color/60 lg:rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden transform hover:-translate-y-2 h-full `}
     >
       <div className="relative">
-        <div className={` ${aspect?"aspect-video":"h-[70vh]"} lg:rounded-t-2xl overflow-hidden`}>
-          {isLoading && (
-            <div className="absolute inset-0 bg-neutral-200 animate-pulse z-10" />
-          )}
+        <div className={` ${aspect?"aspect-video":" h-[50vh] xl:h-[70vh] max-md:aspect-video"} lg:rounded-t-2xl overflow-hidden`}>
+        
           <iframe
             src={getEmbedUrl(project.link)}
             title={isAr ? project.titleAr : project.titleEn}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
-            className={`w-full h-full ${isLoading ? "invisible" : "visible"}`}
-            onLoad={onLoad}
+            className={`w-full h-full `}
           />
         </div>
       </div>

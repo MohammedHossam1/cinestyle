@@ -15,15 +15,7 @@ export default function Projects() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const [loadingStates, setLoadingStates] = useState<boolean[]>([]);
 
-  const handleLoad = (index: number) => {
-    setLoadingStates((prev) => {
-      const updated = [...prev];
-      updated[index] = false;
-      return updated;
-    });
-  };
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -37,7 +29,6 @@ export default function Projects() {
         }
         const initialProjects = data.slice(0, 3);
         setProjects(initialProjects);
-        setLoadingStates(Array(initialProjects.length).fill(true));
       } catch (err) {
         setError(err instanceof Error ? err.message : "Failed to fetch projects");
         console.error("Error fetching projects:", err);
@@ -99,10 +90,8 @@ export default function Projects() {
               <ProjectCard
                 key={0}
                 project={projects[0]}
-                aspect={false}
+                aspect={true}
                 index={0}
-                isLoading={loadingStates[0]}
-                onLoad={() => handleLoad(0)}
               />
             </div>
           )}
@@ -112,8 +101,6 @@ export default function Projects() {
                 key={index + 1}
                 project={project}
                 index={index + 1}
-                isLoading={loadingStates[index + 1]}
-                onLoad={() => handleLoad(index + 1)}
               />
             ))}
           </div>
