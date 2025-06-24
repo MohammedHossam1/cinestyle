@@ -51,6 +51,8 @@ const Portfolio = () => {
     setOnlyReels(isReel);
     setSelectedCategory("");
   }
+  // ,
+  // e
   useEffect(() => {
     const fetchInitialProjects = async () => {
       try {
