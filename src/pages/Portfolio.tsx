@@ -46,6 +46,9 @@ const Portfolio = () => {
       setLoading(false);
     }
   };
+// d
+// d
+// d
 
   useEffect(() => {
     const fetchInitialProjects = async () => {
