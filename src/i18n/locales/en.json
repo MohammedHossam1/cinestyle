@@ -1,0 +1,177 @@
+{
+  "hero": {
+    "title": "Cinestyle media production",
+    "subtitle": "Award-winning film and media production company crafting visual experiences that leave lasting impressions",
+    "button": "Explore More",
+    "getStarted": "Get Started",
+    "watchVideo": "Watch Video",
+    "watchShowreel": "Watch Showreel"
+  },
+  "services": {
+    "title": "Our Services",
+    "description": "We offer comprehensive media production services, from concept development to final delivery, ensuring your vision comes to life with exceptional quality",
+    "exploreAll": "Explore All Services",
+    "productsPhotography": {
+      "title": "Products Photography",
+      "description": "Professional product photography services that highlight the beauty and details of products to attract customers"
+    },
+    "writingContent": {
+      "title": "Writing Content",
+      "description": "Creative content writing that expresses your brand identity and connects with your target audience"
+    },
+    "promoVedios": {
+      "title": "Promotional Videos",
+      "description": "Innovative promotional videos that enhance your brand presence and boost your sales"
+    },
+    "weddingVedios": {
+      "title": "Wedding Videos",
+      "description": "Capturing your special moments with a unique cinematic style that preserves your beautiful memories"
+    },
+    "socialMedia": {
+      "title": "Social Media Content",
+      "description": "Engaging content for social media platforms that boosts your followers' engagement"
+    },
+    "editing": {
+      "title": "Editing",
+      "description": "Professional editing services that transform your footage into a complete story that captivates viewers"
+    },
+    "eventCoverAge": {
+      "title": "Event Coverage",
+      "description": "Comprehensive coverage of events and occasions with the latest technology and highest quality standards"
+    },
+    "podcast": {
+      "title": "Podcast",
+      "description": "Professional audio content production that reaches your audience in an impactful and effective way"
+    }
+  },
+  "about": {
+    "title": "About Us",
+    "description": "At CineStyle, we tell stories with soul. We transform ideas into powerful visuals. We blend creativity, emotion, and storytelling in every frame. More than production, we create experiences that stay with you.",
+    "ourWhy": "Our Why",
+    "whyDescription": "To spark creativity and enhance storytelling through stunning visuals, delivering unforgettable experiences",
+    "beyondFrame": "Beyond the Frame",
+    "frameDescription": "We design visual tales that captivate, inspire, and celebrate the power of artistic expression"
+  },
+  "projects": {
+    "title": "Featured Projects",
+    "description": "Explore our award-winning portfolio of work across various industries and formats",
+    "viewAll": "View All Projects",
+    "etherealDreams": {
+      "title": "Social media interviews",
+      "category": "Social media interviews"
+    },
+    "novaAthletics": {
+      "title": "Promo Videos",
+      "category": "Promo Videos"
+    },
+    "horizonTech": {
+      "title": "Marketing videos",
+      "category": "Corporate Video"
+    },
+    "wilderness": {
+      "title": "CODESHIELD SOLUTIONS REEL 6",
+      "category": "Documentary"
+    },
+    "echo": {
+      "title": "CODESHIELD SOLUTIONS REEL 2",
+      "category": "Music Video"
+    },
+    "loadMore": "All Projects",
+    "noMore": "No More",
+    "count": "Projects : "
+  },
+  "testimonials": {
+    "title": "What Our Clients Say",
+    "description": "We take pride in delivering exceptional results that exceed our clients' expectations",
+    "sarah": {
+      "content": "Incredible experience from start to finish. The team is highly professional, talented, and creative.",
+      "author": "Sarah Mohammed",
+      "position": "Marketing Director",
+      "company": "Star Company"
+    },
+    "michael": {
+      "content": "Best production company I've worked with. Results far exceeded our expectations.",
+      "author": "Michael Johnson",
+      "position": "CEO",
+      "company": "Tech Solutions"
+    },
+    "emily": {
+      "content": "Amazing team that truly cares about bringing your vision to life. Will definitely work with them again.",
+      "author": "Emily Davis",
+      "position": "Brand Manager",
+      "company": "Echo Brands"
+    }
+  },
+  "contact": {
+    "title": "Let's Create Something Amazing Together",
+    "subtitle": "Whether you have a specific project in mind or need guidance in shaping your vision, we're here to help bring your ideas to life",
+    "description": "We're excited to hear your ideas and turn them into reality. Contact us today to start your creative journey",
+    "process": {
+      "title": "Social Media Platforms",
+      "steps": {
+        "consultation": "Address",
+        "concept": "Phone Number",
+        "planning": "Email",
+        "execution": "Social Media",
+        "postProduction": "Delivery & Support"
+      }
+    },
+    "form": {
+      "title": "Start Your Project",
+      "name": "Full Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "service": "Service Required",
+      "message": "Your Message",
+      "submit": "Send Message",
+      "sending": "Sending...",
+      "sent": "Sent!",
+      "placeholder": {
+        "name": "John Doe",
+        "email": "john@example.com",
+        "phone": "(123) 456-7890",
+        "message": "Tell us about your project..."
+      },
+      "success": "Message sent successfully",
+      "error": "Error sending message",
+      "services": {
+        "filmProduction": "Film Production",
+        "commercialVideos": "Commercial Videos",
+        "animation": "Animation",
+        "photography": "Photography",
+        "postProduction": "Post Production"
+      },
+      "selectService": "Select Service",
+      "loading": "Sending...",
+      "namePlaceholder": "Enter your full name",
+      "emailPlaceholder": "Enter your email",
+      "phonePlaceholder": "Enter your phone number",
+      "messagePlaceholder": "Write your message here..."
+    }
+  },
+  "categories": {
+    "allCategories": "All Categories"
+  },
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "footer": {
+    "about": "Creating cinematic experiences and visual stories that captivate audiences and elevate brands since 2024",
+    "quickLinks": "Quick Links",
+    "contactUs": "Contact Us",
+    "rights": "All rights reserved",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "sitemap": "Sitemap",
+    "copyright": "All rights reserved"
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "description": "We couldn't find the page you were looking for. It might be a broken link or the page may have been removed.",
+    "back": "Back "
+  }
+}
