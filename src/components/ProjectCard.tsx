@@ -3,15 +3,16 @@ import { useState } from "react";
 import { IProject } from "../types/Index";
 import { useTranslation } from "react-i18next";
 import Image from "./shared/Image";
-import youtubeIcon from "../assets/play.png"; // 🔁 ضع أيقونة يوتيوب هنا
+import youtubeIcon from "../assets/play.png";
 
 interface ProjectCardProps {
   project: IProject;
   index: number;
   aspect?: boolean;
+  isReel?: boolean;
 }
 
-export const ProjectCard = ({ project, index, aspect = true }: ProjectCardProps) => {
+export const ProjectCard = ({ project, index, aspect = true, isReel }: ProjectCardProps) => {
   const { i18n } = useTranslation();
   const isAr = i18n.language === "ar";
   const [isOpen, setIsOpen] = useState(false);
@@ -42,7 +43,7 @@ export const ProjectCard = ({ project, index, aspect = true }: ProjectCardProps)
       >
         {/* Thumbnail with YouTube Icon Button */}
         <div
-          className={`relative !bg-green-300 ${aspect ? "aspect-video" : "h-[50vh] xl:h-[70vh] "} lg:rounded-t-2xl overflow-hidden`}
+          className={`relative  ${aspect ? "aspect-video" : "h-[50vh] xl:h-[70vh] "} lg:rounded-t-2xl overflow-hidden`}
         >
           <Image
             src={project.thumbnail_url}
@@ -53,17 +54,17 @@ export const ProjectCard = ({ project, index, aspect = true }: ProjectCardProps)
           {/* YouTube Button */}
           <button
             onClick={() => setIsOpen(true)}
-            className="absolute top-2 right-2 bg-black/60 p-2 rounded-full hover:scale-105 transition"
+            className="absolute top-2 lg:top-4 right-2 lg:right-4  p-2 rounded-full hover:scale-105 transition animate-pulse"
             title="Play Video"
           >
-            <img src={youtubeIcon} alt="YouTube" className="size-12 lg:size-20" />
+            <Image src={youtubeIcon} alt="YouTube" className="w-12 lg:w-14 " />
           </button>
         </div>
 
         {/* Title */}
         <div className="p-4 lg:p-6 transition-all group-hover:bg-main-color/70">
-          <div className="block text-xl lg:text-2xl font-bold text-white">
-            <span className="inline-block w-2 h-2 mx-2 bg-primary-500 rounded-full"></span>
+          <div className="block text-xl lg:text-4xl font-bold text-white line-clamp-1">
+            <span className="inline-block w-2 h-2 mx-2 bg-primary-500 rounded-full "></span>
             {isAr ? project.titleAr : project.titleEn}
           </div>
         </div>
@@ -80,7 +81,8 @@ export const ProjectCard = ({ project, index, aspect = true }: ProjectCardProps)
             onClick={() => setIsOpen(false)}
           >
             <motion.div
-              className={`relative w-full max-w-3xl ${aspect ? "aspect-video" : "h-[80vh]"} bg-black`}
+              className={`relative w-full  ${aspect ? "aspect-video max-w-6xl" : "h-[80vh]"} ${isReel && isReel ? "aspect-video max-w-4xl" : "h-[80vh]"} bg-black`}
+
               initial={{ scale: 0.8 }}
               animate={{ scale: 1 }}
               exit={{ scale: 0.8 }}

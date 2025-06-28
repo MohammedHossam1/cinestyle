@@ -8,7 +8,7 @@
     "watchShowreel": "Watch Showreel"
   },
   "services": {
-    "title": "Our Services", 
+    "title": "Our Services",
     "description": "We offer comprehensive media production services, from concept development to final delivery, ensuring your vision comes to life with exceptional quality",
     "exploreAll": "Explore All Services",
     "productsPhotography": {
@@ -113,7 +113,6 @@
         "planning": "Email",
         "execution": "Social Media",
         "postProduction": "Delivery & Support"
-
       }
     },
     "form": {
@@ -170,5 +169,8 @@
     "title": "Page Not Found",
     "description": "We couldn't find the page you were looking for. It might be a broken link or the page may have been removed.",
     "back": "Back "
-  }
+  },
+  "back": "Back ",
+  "reel": "Reels",
+  "promo": "Promo"
 }

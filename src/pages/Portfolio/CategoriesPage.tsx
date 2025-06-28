@@ -9,6 +9,7 @@ import { ProjectCard } from "../../components/ProjectCard";
 import Image from "../../components/shared/Image";
 import Pagination from "../../components/shared/Pagination";
 import Loader from "../../components/Loader";
+import BackBtn from "../../components/shared/BackBtn";
 
 type Category = {
   id: string;
@@ -41,7 +42,7 @@ const cardVariants = {
 
 const CategoriesPage = () => {
   const { isReel } = useParams(); // read /categories/:isReel
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const [categoryList, setCategoryList] = useState<Category[]>([]);
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
@@ -76,13 +77,7 @@ const CategoriesPage = () => {
     <div className="bg-neutral-900 min-h-screen py-32">
 
       <div className="container mx-auto px-4 space-y-10 ">
-        {/* Back Button */}
-        <Link
-          to={"/portfolio"}
-          className="mb-6 px-10 py-3 bg-main-color text-white font-medium rounded hover:bg-main-color/80 transition"
-        >
-          {t("back")}
-        </Link>
+        <BackBtn />
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
 
           {isReel === "promo"
@@ -114,7 +109,7 @@ const CategoriesPage = () => {
                     alt={i18n.language === "ar" ? cat.categoryAr : cat.category}
                     className="w-full h-64 object-cover"
                   />
-                  <div className="p-4 text-white text-center font-semibold">
+                  <div className="p-4 text-white text-center font-semibold text-2xl">
                     {i18n.language === "ar" ? cat.categoryAr : cat.category}
                   </div>
                 </Link>

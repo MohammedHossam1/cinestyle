@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom"; // If using React Router. Use `next/link` for Next.js
 import Image from "../../components/shared/Image";
-import reelImage from "../../assets/reel.webp";
-import promoImage from "../../assets/promo.png";
+import reelImage from "../../assets/reel.jpg";
+import promoImage from "../../assets/promo.jpg";
+import { useTranslation } from "react-i18next";
 
 const Portfolio = () => {
+  const { t } = useTranslation();
+
   return (
     <div className="bg-neutral-900 min-h-screen py-32">
       <div className="container mx-auto px-4">
@@ -16,10 +19,10 @@ const Portfolio = () => {
             <Image
               src={reelImage} // Replace with actual path
               alt="Reel"
-              className="w-full h-64 object-cover"
+              className="w-full h-64 lg:h-80 object-cover"
             />
             <div className="p-4 text-white text-center font-semibold text-2xl">
-              Reel
+              {t("reel")}
             </div>
           </Link>
 
@@ -31,10 +34,11 @@ const Portfolio = () => {
             <Image
               src={promoImage}// Replace with actual path
               alt="Promo"
-              className="w-full h-64 object-cover"
+              className="w-full h-64 lg:h-80 object-cover"
             />
             <div className="p-4 text-white text-center font-semibold text-2xl">
-              Promo
+            {t("promo")}
+
             </div>
           </Link>
         </div>

@@ -15,7 +15,7 @@ export default function Projects() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-
+console.log(projects)
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -39,7 +39,6 @@ export default function Projects() {
 
     fetchProjects();
   }, []);
-
   if (loading) {
     return (
       <section className="py-16 md:py-24">
@@ -85,22 +84,13 @@ export default function Projects() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
         >
-          {projects.length > 0 && (
-            <div className="">
-              <ProjectCard
-                key={0}
-                project={projects[0]}
-                aspect={true}
-                index={0}
-              />
-            </div>
-          )}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {projects.slice(1, 3).map((project, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {projects.slice(0, 3).map((project, index) => (
               <ProjectCard
                 key={index + 1}
                 project={project}
                 index={index + 1}
+                isReel={project.isReel}
               />
             ))}
           </div>
@@ -119,11 +109,10 @@ export default function Projects() {
           >
             {t("projects.loadMore")}
             <ArrowRight
-              className={`h-5 w-5 transform transition-transform ${
-                isAr
-                  ? "scale-x-[-1] group-hover:-translate-x-2"
-                  : "group-hover:translate-x-2"
-              }`}
+              className={`h-5 w-5 transform transition-transform ${isAr
+                ? "scale-x-[-1] group-hover:-translate-x-2"
+                : "group-hover:translate-x-2"
+                }`}
             />
           </Link>
         </motion.div>

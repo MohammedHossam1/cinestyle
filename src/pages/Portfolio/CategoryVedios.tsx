@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useParams } from "react-router-dom";
+import Loader from "../../components/Loader";
+import { ProjectCard } from "../../components/ProjectCard";
+import BackBtn from "../../components/shared/BackBtn";
+import Pagination from "../../components/shared/Pagination";
 import { getProjects } from "../../lib/subaMethods";
 import { IProject } from "../../types/Index";
-import { ProjectCard } from "../../components/ProjectCard";
-import Pagination from "../../components/shared/Pagination";
-import Loader from "../../components/Loader";
 
 const CategoryVideos = () => {
   const { id } = useParams();
@@ -44,12 +45,9 @@ const CategoryVideos = () => {
   return (
     <div className="bg-neutral-900 min-h-screen py-32">
       <div className="container mx-auto px-4 space-y-10">
-        <Link
-          to={"/portfolio/reel"}
-          className="mb-6 px-10 py-3 bg-main-color text-white font-medium rounded hover:bg-main-color/80 transition"
-        >
-          {t("back")}
-        </Link>
+      
+        <BackBtn slug="reel"/>
+
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {videos.map((video, i) => (

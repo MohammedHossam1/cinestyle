@@ -3,5 +3,6 @@ export interface IProject {
     titleEn: string;
     link: string;
     thumbnail_url: string;
+    isReel?: boolean;
   }
   
