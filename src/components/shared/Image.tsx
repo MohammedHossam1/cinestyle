@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import placeholder from "../../assets/placeholder_large_dark.jpg";
 interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   src: string;
   alt: string; 
@@ -11,7 +11,7 @@ const Image = ({
   src,
   alt,
   lazy = true,
-  fallbackSrc = "",
+  fallbackSrc = placeholder,
   ...props
 }: ImageProps) => {
   const [imgSrc, setImgSrc] = useState(src || fallbackSrc);
