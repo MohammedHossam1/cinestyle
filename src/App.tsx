@@ -13,7 +13,6 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
-
       <Routes>
         <Route path="/" element={<MainLayout />}>
           <Route

@@ -17,14 +17,14 @@ const CategoryVideos = () => {
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
 
-  const limit = 6;
+  const limit = 12;
 
   useEffect(() => {
     const fetchCategoryVideos = async () => {
       if (!id) return;
       setLoading(true);
 
-      const { data, count } = await getProjects(page, limit, id, true); 
+      const { data, count } = await getProjects(page, limit, id, true);
 
       setVideos(data);
       setTotalPages(Math.ceil((count || 0) / limit));
@@ -43,25 +43,26 @@ const CategoryVideos = () => {
   }
 
   return (
-    <div className="bg-neutral-900 min-h-screen py-32">
-      <div className="container mx-auto px-4 space-y-10">
-      
-        <BackBtn slug="reel"/>
+      <div className="bg-neutral-900 min-h-screen py-32">
+        <div className="container mx-auto px-4 space-y-10">
+
+          <BackBtn slug="reel" />
 
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {videos.map((video, i) => (
-            <ProjectCard key={i} project={video} index={i} aspect={false} />
-          ))}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            {videos.map((video, i) => (
+              <ProjectCard key={i} project={video} index={i} aspect={false} />
+            ))}
+          </div>
+
+          <Pagination
+            currentPage={page}
+            totalPages={totalPages}
+            onPageChange={(p) => setPage(p)}
+          />
         </div>
-
-        <Pagination
-          currentPage={page}
-          totalPages={totalPages}
-          onPageChange={(p) => setPage(p)}
-        />
       </div>
-    </div>
+
   );
 };
 

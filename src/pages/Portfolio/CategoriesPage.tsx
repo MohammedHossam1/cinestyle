@@ -48,7 +48,7 @@ const CategoriesPage = () => {
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  const limit = 6;
+  const limit = 12;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -102,17 +102,31 @@ const CategoriesPage = () => {
               >
                 <Link
                   to={`/portfolio/reel/${cat.id}`}
-                  className="block rounded overflow-hidden shadow-lg bg-main-color hover:shadow-xl transition-shadow duration-300"
+                  className="relative group block rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
                 >
-                  <Image
-                    src={cat.image_url || placeholderImage}
-                    alt={i18n.language === "ar" ? cat.categoryAr : cat.category}
-                    className="w-full h-64 object-cover"
-                  />
-                  <div className="p-4 text-white text-center font-semibold text-2xl">
-                    {i18n.language === "ar" ? cat.categoryAr : cat.category}
+                  <div className="relative overflow-hidden h-80">
+                    {/* The image */}
+                    <Image
+                      src={cat.image_url || placeholderImage}
+                      alt={i18n.language === "ar" ? cat.categoryAr : cat.category}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 "
+                    />
+
+                    {/* Black overlay with 20% opacity */}
+                    <div className="absolute inset-0 bg-black/20 pointer-events-none group-hover:backdrop-blur-sm transition-all duration-500" />
+                  </div>
+
+
+
+                  {/* Gradient just under the text */}
+                  <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 via-black/60 to-transparent p-4">
+                    <div className="text-white text-4xl font-semibold text-center">
+                      {i18n.language === "ar" ? cat.categoryAr : cat.category}
+                    </div>
                   </div>
                 </Link>
+
+
               </motion.div>
             ))}
 
@@ -127,6 +141,7 @@ const CategoriesPage = () => {
         )}
       </div>
     </div>
+
   );
 };
 

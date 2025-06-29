@@ -35,24 +35,28 @@ export default function Footer() {
             <p className="text-sm leading-relaxed mb-6">{t("footer.about")}</p>
             <div className="flex justify-center md:justify-start gap-4">
               <a
+              target="_blank"
                 href="https://www.instagram.com/cinestyle.mp?igsh=Yzk2dDBkcHNocDl6"
                 className="text-white/70 hover:text-main-color transition-colors"
               >
                 <Instagram className="h-5 w-5" />
               </a>
               <a
+              target="_blank"
                 href="https://x.com/CineS89369?t=fmp_9iXBP6XQoSldpVzuuQ&s=09"
                 className="text-white/70 hover:text-main-color transition-colors"
               >
                 <Twitter className="h-5 w-5" />
               </a>
               <a
+              target="_blank"
                 href="https://youtube.com/@cinestyle.media.production?si=-VYAD_WrNimmLP5T"
                 className="text-white/70 hover:text-main-color transition-colors"
               >
                 <Youtube className="h-5 w-5" />
               </a>
               <a
+              target="_blank"
                 href="https://www.facebook.com/share/16QbXJuG41"
                 className="text-white/70 hover:text-main-color transition-colors"
               >

@@ -91,6 +91,7 @@ console.log(projects)
                 project={project}
                 index={index + 1}
                 isReel={project.isReel}
+                aspect={false}
               />
             ))}
           </div>
