@@ -36,7 +36,7 @@ export default function Footer() {
             <div className="flex justify-center md:justify-start gap-4">
               <a
               target="_blank"
-                href="https://www.instagram.com/cinestyle.mp?igsh=Yzk2dDBkcHNocDl6"
+                href="https://www.instagram.com/cinestylemp/"
                 className="text-white/70 hover:text-main-color transition-colors"
               >
                 <Instagram className="h-5 w-5" />
