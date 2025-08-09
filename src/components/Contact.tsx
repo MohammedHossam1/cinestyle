@@ -95,7 +95,7 @@ export default function Contact() {
             </h3>
             <div className="flex justify-center gap-8">
               <a
-                href="https://www.instagram.com/cinestyle.mp?igsh=Yzk2dDBkcHNocDl6"
+                href="https://www.instagram.com/cinestylemp/"
                 target="_blank"
                 className="group flex items-center gap-3 text-neutral-400 hover:text-main-color transition-colors"
               >
@@ -111,7 +111,7 @@ export default function Contact() {
                 <span className="hidden md:block">CineStyle</span>
               </a>
               <a
-                href="https://www.facebook.com/share/16QbXJuG41"
+                href="https://www.facebook.com/cinestylemp/"
                 target="_blank"
                 className="group flex items-center gap-3 text-neutral-400 hover:text-main-color transition-colors"
               >
@@ -121,7 +121,7 @@ export default function Contact() {
                 </span>
               </a>
               <a
-                href="https://youtube.com/@cinestyle.media.production?si=-VYAD_WrNimmLP5T"
+                href="https://www.youtube.com/@cinestylemp"
                 target="_blank"
                 className="group flex items-center gap-3 text-neutral-400 hover:text-main-color transition-colors"
               >

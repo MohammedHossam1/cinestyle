@@ -93,7 +93,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link
-            to="https://www.youtube.com/@cinestyle.media.production"
+            to="https://www.youtube.com/@cinestylemp"
             target="_blank"
             className="bg-main-color hover:bg-main-color/80 text-white px-8 py-3 rounded-md font-medium transition-colors flex items-center"
           >

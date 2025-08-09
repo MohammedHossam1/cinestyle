@@ -50,14 +50,14 @@ export default function Footer() {
               </a>
               <a
               target="_blank"
-                href="https://youtube.com/@cinestyle.media.production?si=-VYAD_WrNimmLP5T"
+                href="https://www.youtube.com/@cinestylemp"
                 className="text-white/70 hover:text-main-color transition-colors"
               >
                 <Youtube className="h-5 w-5" />
               </a>
               <a
               target="_blank"
-                href="https://www.facebook.com/share/16QbXJuG41"
+                href="https://www.facebook.com/cinestylemp/"
                 className="text-white/70 hover:text-main-color transition-colors"
               >
                 <Facebook className="h-5 w-5" />
