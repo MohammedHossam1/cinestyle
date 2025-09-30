@@ -78,7 +78,7 @@ const CategoriesPage = () => {
 
       <div className="container mx-auto px-4 space-y-10 ">
         <BackBtn />
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-3 sm:grid-cols-2 md:grid-cols-2 gap-2 lg:gap-6">
 
           {isReel === "promo"
             ? projects.map((project, i) => (
@@ -97,21 +97,21 @@ const CategoriesPage = () => {
                 key={cat.id}
                 custom={i}
                 initial="hidden"
+                className="h-44 lg:h-80 border-[5px] border-main-color rounded-2xl overflow-hidden"
                 animate="visible"
                 variants={cardVariants}
               >
                 <Link
                   to={`/portfolio/reel/${cat.id}`}
-                  className="relative group block rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
+                  className="relative group block rounded-2xl bg-red-300 h-full overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
                 >
-                  <div className="relative overflow-hidden h-80">
+                  <div className="relative overflow-hidden  h-full">
                     {/* The image */}
                     <Image
                       src={cat.image_url || placeholderImage}
                       alt={i18n.language === "ar" ? cat.categoryAr : cat.category}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 "
                     />
-
                     {/* Black overlay with 20% opacity */}
                     <div className="absolute inset-0 bg-black/20 pointer-events-none group-hover:backdrop-blur-sm transition-all duration-500" />
                   </div>
@@ -120,7 +120,7 @@ const CategoriesPage = () => {
 
                   {/* Gradient just under the text */}
                   <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 via-black/60 to-transparent p-4">
-                    <div className="text-white text-4xl font-semibold text-center">
+                    <div className="text-white text-lg lg:text-4xl font-semibold text-center">
                       {i18n.language === "ar" ? cat.categoryAr : cat.category}
                     </div>
                   </div>

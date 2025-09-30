@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 import { ServicesData } from "../data/Index";
 import Image from "./shared/Image";
+import { container } from "../constants";
 export default function Footer() {
   const currentYear = new Date().getFullYear();
   const { t } = useTranslation();
@@ -24,8 +25,8 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-neutral-900 text-white/80 border-t border-white/10">
-      <div className="container mx-auto px-4 md:px-8 py-12 md:py-16">
+    <footer className="bg-neutral-900 text-white/80 border-t border-white/10 mt-10">
+      <div className={container + " py-12"}>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
           {/* Company Info */}
           <div className="text-center md:text-start">

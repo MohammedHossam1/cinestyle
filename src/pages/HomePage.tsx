@@ -1,17 +1,17 @@
+import { motion } from "framer-motion";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { motion } from "framer-motion";
+import About from "../components/About";
 import Contact from "../components/Contact";
 import HeroSection from "../components/HeroSection";
-import Projects from "../components/Projects";
 import Services from "../components/Services";
-import About from "../components/About";
+import Portfolio from "./Portfolio/Portfolio";
 
 const HomePage: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="overflow-hidden">
+    <div className="overflow-hidden space-y-14 lg:space-y-32">
       {/* Hero Section */}
 
       <motion.div
@@ -39,7 +39,7 @@ const HomePage: React.FC = () => {
         viewport={{ once: true }}
         transition={{ duration: 1, delay: 0.2 }}
       >
-        <Projects />
+        <Portfolio />
       </motion.div>
       {/* Services Section */}
       <motion.div
@@ -50,11 +50,6 @@ const HomePage: React.FC = () => {
       >
         <Services />
       </motion.div>
-
-
-
-      {/* Testimonials */}
-      {/* <Testimonials /> */}
 
       {/* Contact Section */}
       <motion.div

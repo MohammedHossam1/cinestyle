@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { ProjectCard } from "./ProjectCard";
 import { getHomeProjects } from "../lib/subaMethods";
 import { IProject } from "../types/Index";
+import { container } from "../constants";
 
 export default function Projects() {
   const { t, i18n } = useTranslation();
@@ -41,7 +42,7 @@ console.log(projects)
   }, []);
   if (loading) {
     return (
-      <section className="py-16 md:py-24">
+      <section className="">
         <div className="container mx-auto px-4 md:px-8 flex justify-center items-center min-h-[50vh]">
           <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-main-color border-r-transparent"></div>
         </div>
@@ -51,7 +52,7 @@ console.log(projects)
 
   if (error) {
     return (
-      <section className="py-16 md:py-24">
+      <section className="">
         <div className="container mx-auto px-4 md:px-8 flex justify-center items-center min-h-[50vh]">
           <div className="text-red-500 text-center">
             <p>{error}</p>
@@ -62,8 +63,8 @@ console.log(projects)
   }
 
   return (
-    <section className="py-16 md:py-24 ">
-      <div className="container mx-auto px-4 md:px-8">
+    <section className=" ">
+      <div className={container}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

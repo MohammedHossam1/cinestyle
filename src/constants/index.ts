@@ -1,0 +1,1 @@
+export const container = "container mx-auto px-2 lg:px-12";

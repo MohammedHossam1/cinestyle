@@ -23,14 +23,6 @@ function App() {
               </Suspense>
             }
           />
-          {/* <Route
-            path="categories"
-            element={
-              <Suspense fallback={<Loader />}>
-                <CategoriesPage />
-              </Suspense>
-            }
-          /> */}
           <Route
             path="portfolio/:isReel"
             element={

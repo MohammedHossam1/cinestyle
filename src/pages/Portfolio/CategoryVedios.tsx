@@ -49,7 +49,7 @@ const CategoryVideos = () => {
           <BackBtn slug="reel" />
 
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-3 sm:grid-cols-2 md:grid-cols-5 gap-2">
             {videos.map((video, i) => (
               <ProjectCard key={i} project={video} index={i} aspect={false} />
             ))}

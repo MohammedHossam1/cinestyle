@@ -1,27 +1,35 @@
-import React from "react";
-import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
-import { Lightbulb, Eye } from "lucide-react";
+import { Eye, Lightbulb } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import SectionHeader from "./shared/SectionHeader";
+import { container } from "../constants";
 
 const About = () => {
   const { t } = useTranslation();
-
+  const info = [
+    {
+      icon: <Lightbulb className="w-8 xl:w-12 h-8 xl:h-12 text-main-color" />,
+      title: t("about.ourWhy"),
+      description: t("about.whyDescription"),
+      delay: 0.4,
+    },
+    {
+      icon: <Eye className="w-8 xl:w-12 h-8 xl:h-12 text-main-color" />,
+      title: t("about.beyondFrame"),
+      description: t("about.frameDescription"),
+      delay: 0.6,
+    }
+  ]
   return (
-    <section id="about" className="min-h-screen py-24 bg-gradient-to-br text-white">
+    <section id="about" className=" bg-gradient-to-br text-white">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        className="container mx-auto px-6 md:px-12"
+        className={container}
       >
-        <motion.h1
-          initial={{ scale: 0.95, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          className="text-4xl md:text-6xl font-extrabold text-center tracking-tight mb-10"
-        >
-          {t("about.title")}
-        </motion.h1>
+
+        <SectionHeader text={t("about.title")} />
 
         <motion.p
           initial={{ y: 20, opacity: 0 }}
@@ -32,42 +40,26 @@ const About = () => {
           {t("about.description")}
         </motion.p>
 
-        <div className="mt-20 grid grid-cols-1 md:grid-cols-2 gap-10">
-          {/* Why Us Card */}
-          <motion.div
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.4, duration: 1 }}
-            className="bg-neutral-800 border border-neutral-700 lg:rounded-2xl p-8 shadow-lg hover:shadow-xl transition"
-          >
-            <div className="flex items-center justify-center mb-6">
-              <Lightbulb className="w-12 h-12 text-main-color" />
-            </div>
-            <h2 className="text-3xl font-semibold text-center mb-4">
-              {t("about.ourWhy")}
-            </h2>
-            <p className="text-lg text-neutral-300 text-center leading-relaxed">
-              {t("about.whyDescription")}
-            </p>
-          </motion.div>
-
-          {/* Beyond Frame Card */}
-          <motion.div
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.6, duration: 1 }}
-            className="bg-neutral-800 border border-neutral-700 lg:rounded-2xl p-8 shadow-lg hover:shadow-xl transition"
-          >
-            <div className="flex items-center justify-center mb-6">
-              <Eye className="w-12 h-12 text-main-color" />
-            </div>
-            <h2 className="text-3xl font-semibold text-center mb-4">
-              {t("about.beyondFrame")}
-            </h2>
-            <p className="text-lg text-neutral-300 text-center leading-relaxed">
-              {t("about.frameDescription")}
-            </p>
-          </motion.div>
+        <div className="mt-4 lg:mt-10 xl:mt-20 grid grid-cols-2 gap-2 lg:gap-10">
+          {info.map((item, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: item.delay, duration: 1 }}
+              className={`bg-neutral-800 border border-neutral-700 lg:rounded-2xl p-2 py-4 lg:p-8 shadow-lg hover:shadow-xl transitionspace-y-2 lg:space-y-3 `}
+            >
+              <div className={"flex items-center justify-center"}>
+                {item.icon}
+              </div>
+              <h2 className={"text-base lg:text-3xl font-semibold text-center"}>
+                {item.title}
+              </h2>
+              <p className="text-sm lg:text-lg text-neutral-300 text-center leading-relaxed">
+                {item.description}
+              </p>
+            </motion.div>
+          ))}
         </div>
       </motion.div>
     </section>

@@ -39,11 +39,11 @@ export const ProjectCard = ({ project, index, aspect = true, isReel }: ProjectCa
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ delay: index * 0.1 }}
-        className="group relative  lg:rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden h-full"
+        className="group relative  lg:rounded-2xl  border-main-color border-[4px] rounded-lg shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden h-full"
       >
         {/* Thumbnail with YouTube Icon Button */}
         <div
-          className={`relative overflow-hidden ${aspect ? "aspect-video" : "h-[70vh] xl:h-[80vh]"} lg:rounded-t-2xl group`}
+          className={`relative overflow-hidden ${aspect ? "aspect-video" : "h-[200px] xl:h-[400px]"} lg:rounded-t-2xl group`}
         >
           {/* Scalable Image on Hover */}
           <div className="w-full h-full overflow-hidden relative">
@@ -65,13 +65,13 @@ export const ProjectCard = ({ project, index, aspect = true, isReel }: ProjectCa
             className="absolute top-2 lg:top-4 right-2 lg:right-4 p-2 rounded-full hover:scale-105 transition animate-pulse z-10"
             title="Play Video"
           >
-            <Image src={youtubeIcon} alt="YouTube" className="w-12 lg:w-14" />
+            <Image src={youtubeIcon} alt="YouTube" className="w-8 lg:w-10" />
           </button>
 
           {/* Title Overlay */}
           <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 via-black/70 to-transparent p-3 lg:p-5">
-            <div className="text-white text-3xl font-bold line-clamp-1 pb-2 pt-10">
-              <span className="inline-block w-2 h-2 mx-2 bg-primary-500 rounded-full "></span>
+            <div className="text-white  text-sm lg:text-3xl font-bold line-clamdp-1 pb-2 pt-10">
+              <span className="inline-block w-2  h-2 mx-2 bg-primary-500 rounded-full "></span>
               {isAr ? project.titleAr : project.titleEn}
             </div>
           </div>
