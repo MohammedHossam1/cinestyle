@@ -76,11 +76,9 @@ const CategoriesPage = () => {
 
   return (
     <div className="bg-neutral-900 min-h-screen py-20 lg:py-32">
-
       <div className={container}>
         <BackBtn slug="#reelOrPromo" />
         <div className="grid grid-cols-3  md:grid-cols-4 gap-2 lg:gap-6">
-
           {isReel === "promo"
             ? projects.map((project, i) => (
               <motion.div
@@ -98,7 +96,7 @@ const CategoriesPage = () => {
                 key={cat.id}
                 custom={i}
                 initial="hidden"
-                className="h-44 lg:h-80 border-[5px] border-main-color rounded-3xl overflow-hidden"
+                className="h-44 lg:h-80 border-[3px] border-main-color rounded-3xl overflow-hidden"
                 animate="visible"
                 variants={cardVariants}
               >
@@ -120,8 +118,8 @@ const CategoriesPage = () => {
 
 
                   {/* Gradient just under the text */}
-                  <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 via-black/60 to-transparent p-4">
-                    <div className="text-white text-lg lg:text-4xl font-semibold text-center">
+                  <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 via-black/60 to-transparent py-2 lg:p-4">
+                    <div className="text-white text-base lg:text-4xl font-semibold text-center">
                       {i18n.language === "ar" ? cat.categoryAr : cat.category}
                     </div>
                   </div>

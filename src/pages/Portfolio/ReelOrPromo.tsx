@@ -32,7 +32,7 @@ const ReelOrPromo = () => {
             <Link
               key={to}
               to={to}
-              className="relative group border-[5px] border-main-color rounded-3xl w-full overflow-hidden shadow-lg hover:shadow-xl"
+              className="relative group border-[3px] border-main-color rounded-3xl w-full overflow-hidden shadow-lg hover:shadow-xl"
             >
               {/* Background Image */}
               <Image

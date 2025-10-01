@@ -39,7 +39,7 @@ export const ProjectCard = ({ project, index, aspect = true, isReel }: ProjectCa
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ delay: index * 0.1 }}
-        className="group relative  lg:rounded-2xl  border-main-color border-[4px] rounded-lg shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden h-full"
+        className="group relative  lg:rounded-2xl  border-main-color border-[3px] rounded-lg shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden h-full"
       >
         {/* Thumbnail with YouTube Icon Button */}
         <div
