@@ -7,6 +7,7 @@ import BackBtn from "../../components/shared/BackBtn";
 import Pagination from "../../components/shared/Pagination";
 import { getProjects } from "../../lib/subaMethods";
 import { IProject } from "../../types/Index";
+import { container } from "../../constants";
 
 const CategoryVideos = () => {
   const { id } = useParams();
@@ -18,7 +19,7 @@ const CategoryVideos = () => {
   const [totalPages, setTotalPages] = useState(1);
 
   const limit = 12;
-
+  console.log(videos)
   useEffect(() => {
     const fetchCategoryVideos = async () => {
       if (!id) return;
@@ -43,25 +44,21 @@ const CategoryVideos = () => {
   }
 
   return (
-      <div className="bg-neutral-900 min-h-screen py-32">
-        <div className="container mx-auto px-4 space-y-10">
-
-          <BackBtn slug="reel" />
-
-
-          <div className="grid grid-cols-3 sm:grid-cols-2 md:grid-cols-5 gap-2">
-            {videos.map((video, i) => (
-              <ProjectCard key={i} project={video} index={i} aspect={false} />
-            ))}
-          </div>
-
-          <Pagination
-            currentPage={page}
-            totalPages={totalPages}
-            onPageChange={(p) => setPage(p)}
-          />
+    <div className="bg-neutral-900 min-h-screen py-20 lg:py-32">
+      <div className={container}>
+        <BackBtn slug="reel" />
+        <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-5 gap-2">
+          {videos.map((video, i) => (
+            <ProjectCard key={i} project={video} index={i} aspect={false} />
+          ))}
         </div>
+        <Pagination
+          currentPage={page}
+          totalPages={totalPages}
+          onPageChange={(p) => setPage(p)}
+        />
       </div>
+    </div>
 
   );
 };

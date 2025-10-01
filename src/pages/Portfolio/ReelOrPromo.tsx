@@ -6,26 +6,26 @@ import { useTranslation } from "react-i18next";
 import { container } from "../../constants";
 import SectionHeader from "../../components/shared/SectionHeader";
 
-const Portfolio = () => {
+const ReelOrPromo = () => {
   const { t } = useTranslation();
 
   const cards = [
     {
-      to: "/portfolio/reel",
+      to: "/reel",
       image: reelImage,
       title: t("reel"),
     },
     {
-      to: "/portfolio/promo",
+      to: "/promo",
       image: promoImage,
       title: t("promo"),
     },
   ];
 
   return (
-    <div className="bg-neutral-900">
+    <div className="bg-neutral-900" id="reelOrPromo">
       <div className={container}>
-        <SectionHeader text={t("contact.title")} desc={t("contact.description")} />
+        <SectionHeader text={t("reelPromoTitle")} desc={t("reelPromoDesc")} />
 
         <div className="flex justify-center  items-center gap-2 lg:gap-10 w-full">
           {cards.map(({ to, image, title }) => (
@@ -55,4 +55,4 @@ const Portfolio = () => {
   );
 };
 
-export default Portfolio;
+export default ReelOrPromo;

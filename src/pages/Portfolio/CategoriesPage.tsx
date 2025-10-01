@@ -10,6 +10,7 @@ import Image from "../../components/shared/Image";
 import Pagination from "../../components/shared/Pagination";
 import Loader from "../../components/Loader";
 import BackBtn from "../../components/shared/BackBtn";
+import { container } from "../../constants";
 
 type Category = {
   id: string;
@@ -74,11 +75,11 @@ const CategoriesPage = () => {
   }
 
   return (
-    <div className="bg-neutral-900 min-h-screen py-32">
+    <div className="bg-neutral-900 min-h-screen py-20 lg:py-32">
 
-      <div className="container mx-auto px-4 space-y-10 ">
-        <BackBtn />
-        <div className="grid grid-cols-3 sm:grid-cols-2 md:grid-cols-2 gap-2 lg:gap-6">
+      <div className={container}>
+        <BackBtn slug="#reelOrPromo" />
+        <div className="grid grid-cols-3  md:grid-cols-4 gap-2 lg:gap-6">
 
           {isReel === "promo"
             ? projects.map((project, i) => (
@@ -97,13 +98,13 @@ const CategoriesPage = () => {
                 key={cat.id}
                 custom={i}
                 initial="hidden"
-                className="h-44 lg:h-80 border-[5px] border-main-color rounded-2xl overflow-hidden"
+                className="h-44 lg:h-80 border-[5px] border-main-color rounded-3xl overflow-hidden"
                 animate="visible"
                 variants={cardVariants}
               >
                 <Link
-                  to={`/portfolio/reel/${cat.id}`}
-                  className="relative group block rounded-2xl bg-red-300 h-full overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
+                  to={`/reel/${cat.id}`}
+                  className="relative group block rounded-3xl h-full overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
                 >
                   <div className="relative overflow-hidden  h-full">
                     {/* The image */}

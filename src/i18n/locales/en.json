@@ -152,6 +152,8 @@
     "home": "Home",
     "services": "Services",
     "portfolio": "Portfolio",
+    "reel": "Reels",
+    "promo": "Promos",
     "about": "About",
     "contact": "Contact"
   },
@@ -172,6 +174,8 @@
   },
   "back": "Back ",
   "reel": "Reels",
-  "promo": "Promo",
-  "noVideosFound":"No Videos Found"
+  "promo": "Promos",
+  "reelPromoTitle": "Reels & Promos",
+  "reelPromoDesc": "Discover our latest reels and promotional content — quick, engaging, and designed to keep you inspired and up to date.",
+  "noVideosFound": "No Videos Found"
 }

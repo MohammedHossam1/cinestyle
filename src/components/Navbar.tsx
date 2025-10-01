@@ -31,7 +31,8 @@ const Navbar: React.FC = () => {
     { key: 'home', path: '/' },
     { key: 'about', path: '/#about' },
     { key: 'services', path: '/#services' },
-    { key: 'portfolio', path: '/portfolio' },
+    { key: 'reel', path: '/reel' },
+    { key: 'promo', path: '/promo' },
     { key: 'contact', path: '/#contact' }
   ];
 
@@ -61,7 +62,7 @@ const Navbar: React.FC = () => {
             className="flex items-center space-x-2 rtl:space-x-reverse text-white "
           >
           
-            <Image  src={logo} alt="cinsetyle" className={` max-lg:w-14 ${isScrolled ? 'w-14' : 'w-32 '}`} />
+            <Image  src={logo} alt="cinsetyle" className={` max-lg:w-14 p-2 ${isScrolled ? 'w-14' : 'w-24 '}`} />
           </Link>
 
           {/* Desktop Navigation */}

@@ -92,12 +92,12 @@ export default function Contact() {
                 initial={{ y: 20, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
-                className="bg-neutral-800 p-4 border-2 border-neutral-800 hover:border-main-color duration-500 transition-all  lg:p-8 lg:rounded-3xl block focus:outline-none focus:ring-2 focus:ring-main-color "
+                className="bg-neutral-800 py-4 border-2 border-neutral-800 hover:border-main-color duration-500 transition-all  lg:p-8 lg:rounded-3xl block focus:outline-none focus:ring-2 focus:ring-main-color "
                 tabIndex={0}
               >
                 <div className="flex flex-col items-center text-center">
                   <Icon className="size-6 lg:size-12 text-main-color mb-4" />
-                  <h3 className="text-xs lg:text-xl font-semibold text-white mb-2">
+                  <h3 className="text-sm lg:text-xl font-semibold text-white mb-2">
                     {t(titleKey)}
                   </h3>
                   <span className="text-xs xl:text-lg max-w-full overflow-hidden text-ellipsis whitespace-nowrap" style={{ width: "100%" }}>

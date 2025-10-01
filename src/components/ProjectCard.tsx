@@ -51,11 +51,11 @@ export const ProjectCard = ({ project, index, aspect = true, isReel }: ProjectCa
             <Image
               src={project.thumbnail_url}
               alt={project.titleEn}
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              className="w-full h-full object-cover  transition-transform duration-500 group-hover:scale-110"
             />
 
             {/* Blur Overlay */}
-            <div className="absolute inset-0 bg-black/0 backdrop-blur-0 group-hover:backdrop-blur-sm transition-all duration-500" />
+            <div className="absolute inset-0 bg-black/0 backdrop-blur-0 group-hover:backdrop-blur-sm transition-all duration-500 cursor-pointer" onClick={() => setIsOpen(true)} />
           </div>
 
 
@@ -65,13 +65,13 @@ export const ProjectCard = ({ project, index, aspect = true, isReel }: ProjectCa
             className="absolute top-2 lg:top-4 right-2 lg:right-4 p-2 rounded-full hover:scale-105 transition animate-pulse z-10"
             title="Play Video"
           >
-            <Image src={youtubeIcon} alt="YouTube" className="w-8 lg:w-10" />
+            <Image src={youtubeIcon} alt="YouTube" className="w-6 xl:w-10" />
           </button>
 
           {/* Title Overlay */}
-          <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 via-black/70 to-transparent p-3 lg:p-5">
-            <div className="text-white  text-sm lg:text-3xl font-bold line-clamdp-1 pb-2 pt-10">
-              <span className="inline-block w-2  h-2 mx-2 bg-primary-500 rounded-full "></span>
+          <div  onClick={() => setIsOpen(true)} className="absolute cursor-pointer bottom-0 left-0 w-full bg-gradient-to-t from-black/90 via-black/70 to-transparent p-3 xl:p-5">
+            <div className="text-white  text-sm lg:text-base xl:text-3xl font-bold line-clamdp-1 pb-1xl:pb-2 pt-10">
+              {/* <span className="inline-block w-2  h-2 mx-2 bg-primary-500 rounded-full "></span> */}
               {isAr ? project.titleAr : project.titleEn}
             </div>
           </div>

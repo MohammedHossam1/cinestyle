@@ -1,5 +1,6 @@
-import { ChevronUp, MessageCircle } from 'lucide-react';
+import { ChevronUp } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import { FaWhatsapp } from 'react-icons/fa';
 
 const ScrollToTopBtn = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -45,7 +46,7 @@ const ScrollToTopBtn = () => {
         aria-label="Chat on WhatsApp"
         style={{ boxShadow: '0 4px 16px 0 rgba(0,0,0,0.15)' }}
       >
-        <MessageCircle className="h-6 w-6" />
+        <FaWhatsapp className="h-6 w-6" />
       </button>
       {/* Scroll to Top Button */}
       <button

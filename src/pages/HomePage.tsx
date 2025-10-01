@@ -5,13 +5,13 @@ import About from "../components/About";
 import Contact from "../components/Contact";
 import HeroSection from "../components/HeroSection";
 import Services from "../components/Services";
-import Portfolio from "./Portfolio/Portfolio";
+import Portfolio from "./Portfolio/ReelOrPromo";
 
 const HomePage: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="overflow-hidden space-y-14 lg:space-y-32">
+    <div className="overflow-hidden space-y-16 lg:space-y-32">
       {/* Hero Section */}
 
       <motion.div

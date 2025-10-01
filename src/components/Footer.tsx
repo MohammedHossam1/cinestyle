@@ -10,19 +10,24 @@ import {
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
-import { ServicesData } from "../data/Index";
 import Image from "./shared/Image";
 import { container } from "../constants";
+import { useServices } from "../hooks/fetch-methods";
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-  const { t } = useTranslation();
-
+  const { t, i18n } = useTranslation();
+  const isAr = i18n.language === "ar";
+  const { data: servicesData = [], isLoading, error } = useServices();
+  console.log(servicesData)
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
+  if (error || isLoading) {
+    return null
+  }
 
   return (
     <footer className="bg-neutral-900 text-white/80 border-t border-white/10 mt-10">
@@ -36,28 +41,28 @@ export default function Footer() {
             <p className="text-sm leading-relaxed mb-6">{t("footer.about")}</p>
             <div className="flex justify-center md:justify-start gap-4">
               <a
-              target="_blank"
+                target="_blank"
                 href="https://www.instagram.com/cinestylemp/"
                 className="text-white/70 hover:text-main-color transition-colors"
               >
                 <Instagram className="h-5 w-5" />
               </a>
               <a
-              target="_blank"
+                target="_blank"
                 href="https://x.com/CineS89369?t=fmp_9iXBP6XQoSldpVzuuQ&s=09"
                 className="text-white/70 hover:text-main-color transition-colors"
               >
                 <Twitter className="h-5 w-5" />
               </a>
               <a
-              target="_blank"
+                target="_blank"
                 href="https://www.youtube.com/@cinestylemp"
                 className="text-white/70 hover:text-main-color transition-colors"
               >
                 <Youtube className="h-5 w-5" />
               </a>
               <a
-              target="_blank"
+                target="_blank"
                 href="https://www.facebook.com/cinestylemp/"
                 className="text-white/70 hover:text-main-color transition-colors"
               >
@@ -76,33 +81,43 @@ export default function Footer() {
                 { key: "home", label: t("nav.home") },
                 { key: "about", label: t("nav.about") },
                 { key: "services", label: t("nav.services") },
-                { key: "portfolio", label: t("nav.portfolio") },
+                { key: "reel", label: t("nav.reel") },
+                { key: "promo", label: t("nav.promo") },
                 { key: "contact", label: t("nav.contact") },
               ].map((item) => (
                 <li key={item.key}>
-                  {item.key === "portfolio" ? (
+                  {item.key === "reel" ? (
                     <Link
-                      to="/portfolio"
+                      to="/reel"
                       className="text-sm text-white/70 hover:text-main-color transition-colors"
                     >
                       {item.label}
                     </Link>
-                  ) : (
+                  ) : item.key === "promo" ? (
                     <Link
-                      to="/"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        if (item.key === "home") {
-                          window.scrollTo({ top: 0, behavior: 'smooth' });
-                        } else {
-                          scrollToSection(item.key);
-                        }
-                      }}
-                      className="text-sm text-white/70 hover:text-main-color transition-colors cursor-pointer"
+                      to="/promo"
+                      className="text-sm text-white/70 hover:text-main-color transition-colors"
                     >
                       {item.label}
                     </Link>
-                  )}
+                  ) :
+
+                    (
+                      <Link
+                        to="/"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          if (item.key === "home") {
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                          } else {
+                            scrollToSection(item.key);
+                          }
+                        }}
+                        className="text-sm text-white/70 hover:text-main-color transition-colors cursor-pointer"
+                      >
+                        {item.label}
+                      </Link>
+                    )}
                 </li>
               ))}
             </ul>
@@ -114,9 +129,9 @@ export default function Footer() {
               {t("services.title")}
             </h3>
             <ul className="space-y-2">
-              {ServicesData?.map((service) => (
+              {servicesData?.map((service) => (
                 <li key={service.title} className="text-sm text-white/70  ">
-                  {t(`${service.title}.title`)}
+                  {isAr ? service.titleAr : service.titleEn}
                 </li>
               ))}
             </ul>
@@ -148,7 +163,17 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-center items-center">
+        <div className="border-t border-white/10 mt-12 pt-8 flex max-lg:flex-col  justify-center gap-2 lg:gap-10 items-center">
+          <div>
+            <span> Developed by </span>
+            <a
+              target="_blank"
+              href="https://mohammedhossam.site"
+              className="text-white/70 hover:text-main-color transition-colors"
+            >
+              Mohammed Hossam
+            </a>
+          </div>
           <p className="text-sm text-white/60 mb-4 md:mb-0">
             &copy; {currentYear} {t("footer.copyright")}
           </p>

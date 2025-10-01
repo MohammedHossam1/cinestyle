@@ -4,7 +4,6 @@ import Loader from "./components/Loader";
 import MainLayout from "./components/MainLayout";
 import ScrollToTop from "./components/shared/ScrollToTop";
 import CategoryVedios from "./pages/Portfolio/CategoryVedios";
-import Portfolio from "./pages/Portfolio/Portfolio";
 const HomePage = lazy(() => import("./pages/HomePage"));
 const CategoriesPage = lazy(() => import("./pages/Portfolio/CategoriesPage"));
 const NotFound = lazy(() => import("./pages/NotFound"));
@@ -24,7 +23,7 @@ function App() {
             }
           />
           <Route
-            path="portfolio/:isReel"
+            path="/:isReel"
             element={
               <Suspense fallback={<Loader />}>
                 <CategoriesPage />
@@ -32,18 +31,10 @@ function App() {
             }
           />
           <Route
-            path="portfolio/:isReel/:id"
+            path="/:isReel/:id"
             element={
               <Suspense fallback={<Loader />}>
                 <CategoryVedios />
-              </Suspense>
-            }
-          />
-          <Route
-            path="portfolio"
-            element={
-              <Suspense fallback={<Loader />}>
-                <Portfolio />
               </Suspense>
             }
           />

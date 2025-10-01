@@ -1,34 +1,55 @@
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import ServiceCard from "../components/ServiceCard";
-import { services } from "../lib/subaMethods";
 import { container } from "../constants";
 import SectionHeader from "./shared/SectionHeader";
-import { IServices } from "../types/Index";
+import { useServices } from "../hooks/fetch-methods";
+
 export default function Services() {
   const { t, i18n } = useTranslation();
-  const [servicesData, setServicesData] = useState<IServices[]>([]);
+  const { data: servicesData = [], isLoading, error } = useServices();
   const isAr = i18n.language === "ar";
-  useEffect(() => {
-    const getServices = async () => {
-      try {
-        const data = await services();
-        setServicesData(data);
-      } catch (error) {
-        console.error('Error fetching services:', error);
-      }
-    }
 
-    getServices();
-  }, []);
+  // Handle loading state
+  if (isLoading) {
+    return (
+      <section className="relative" id="services">
+        <div className="absolute inset-0" />
+        <div className={`${container} relative`}>
+          <SectionHeader text={t("services.title")} desc={t("services.description")} />
+          <div className="grid grid-cols-3 lg:grid-cols-4 gap-2 xl:gap-8">
+            {Array.from({ length: 8 }).map((_, index) => (
+              <div
+                key={index}
+                className="h-32 bg-gray-300 animate-pulse rounded-lg"
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  }
 
+  // Handle error state
+  if (error) {
+    return (
+      <section className="relative" id="services">
+        <div className="absolute inset-0" />
+        <div className={`${container} relative`}>
+          <SectionHeader text={t("services.title")} desc={t("services.description")} />
+          <div className="text-center py-8">
+            <p className="text-red-500">Error loading services. Please try again later.</p>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
-    <section className=" relative" id="services">
+    <section className="relative" id="services">
       <div className="absolute inset-0" />
       <div className={`${container} relative`}>
-      <SectionHeader text={t("services.title")}  desc={t("services.description")}/>
+        <SectionHeader text={t("services.title")} desc={t("services.description")} />
 
         <motion.div className="grid grid-cols-3 lg:grid-cols-4 gap-2 xl:gap-8">
           {servicesData.map((service, index) => (
@@ -37,7 +58,7 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              key={index}>
+              key={service.id || index}>
               <ServiceCard
                 title={isAr ? service.titleAr : service.titleEn}
                 className="hover:scale-105 transition-transform duration-300"
@@ -50,7 +71,6 @@ export default function Services() {
             </motion.div>
           ))}
         </motion.div>
-
       </div>
     </section>
   );

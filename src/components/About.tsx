@@ -28,9 +28,7 @@ const About = () => {
         transition={{ duration: 1 }}
         className={container}
       >
-
         <SectionHeader text={t("about.title")} />
-
         <motion.p
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}

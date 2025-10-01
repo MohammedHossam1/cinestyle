@@ -7,8 +7,8 @@ const BackBtn = ({ slug = "" }: { slug?: string }) => {
 
   return (
     <Link
-      to={`/portfolio/${slug}`}
-      className="group inline-flex items-center gap-2 px-6 py-3 mb-6 rounded-full bg-main-color text-white font-semibold shadow-md hover:bg-main-color/90 transition-all duration-300"
+      to={`/${slug}`}
+      className="group inline-flex items-center gap-2 px-3 lg:px-6 py-2 xl:py-3 mb-6 rounded-full bg-main-color text-white font-semibold shadow-md hover:bg-main-color/90 transition-all duration-300"
     >
       <ArrowLeft className="w-5 h-5 transition-transform duration-300 group-hover:-translate-x-1" />
       <span>{t("back")}</span>
