@@ -10,47 +10,51 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 
 function App() {
   return (
-    <Router>
-      <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<MainLayout />}>
-          <Route
-            path="/"
-            element={
-              <Suspense fallback={<Loader />}>
-                <HomePage />
-              </Suspense>
-            }
-          />
-          <Route
-            path="/:isReel"
-            element={
-              <Suspense fallback={<Loader />}>
-                <CategoriesPage />
-              </Suspense>
-            }
-          />
-          <Route
-            path="/:isReel/:id"
-            element={
-              <Suspense fallback={<Loader />}>
-                <CategoryVedios />
-              </Suspense>
-            }
-          />
+    <div className="bg-blue-500">
 
-          {/* Fallback route (404) */}
-          <Route
-            path="*"
-            element={
-              <Suspense fallback={<Loader />}>
-                <NotFound />
-              </Suspense>
-            }
-          />
-        </Route>
-      </Routes>
-    </Router>
+      <Router>
+        <ScrollToTop />
+        <Routes>
+          <Route path="/" element={<MainLayout />}>
+            <Route
+              path="/"
+              element={
+                <Suspense fallback={<Loader />}>
+                  <HomePage />
+                </Suspense>
+              }
+            />
+            <Route
+              path="/:isReel"
+              element={
+                <Suspense fallback={<Loader />}>
+                  <CategoriesPage />
+                </Suspense>
+              }
+            />
+            <Route
+              path="/:isReel/:id"
+              element={
+                <Suspense fallback={<Loader />}>
+                  <CategoryVedios />
+                </Suspense>
+              }
+            />
+
+            {/* Fallback route (404) */}
+            <Route
+              path="*"
+              element={
+                <Suspense fallback={<Loader />}>
+                  <NotFound />
+                </Suspense>
+              }
+            />
+          </Route>
+        </Routes>
+      </Router>
+    </div>
+
   );
 }
 

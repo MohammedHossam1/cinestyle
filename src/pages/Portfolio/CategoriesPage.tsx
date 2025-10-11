@@ -75,18 +75,15 @@ const CategoriesPage = () => {
   }
 
   return (
-    <div className="bg-neutral-900 min-h-screen py-20 lg:py-32">
-      <div className={container}>
+    <div className=" min-h-screen py-20 lg:py-32">
+      <div className={`min-h-screen ${container}`}>
         <BackBtn slug="#reelOrPromo" />
-        <div className="grid grid-cols-3  md:grid-cols-4 gap-2 lg:gap-6">
+        <div className={`grid  h-full  gap-2 pb-10 pt-2 ${isReel === "promo" ? "grid-cols-2" : "grid-cols-3"} md:grid-cols-4 lg:gap-6`}>
           {isReel === "promo"
             ? projects.map((project, i) => (
               <motion.div
                 key={project.id}
                 custom={i}
-                initial="hidden"
-                animate="visible"
-                variants={cardVariants}
               >
                 <ProjectCard project={project} index={i} />
               </motion.div>

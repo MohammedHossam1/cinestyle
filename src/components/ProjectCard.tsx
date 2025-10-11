@@ -39,11 +39,11 @@ export const ProjectCard = ({ project, index, aspect = true, isReel }: ProjectCa
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ delay: index * 0.1 }}
-        className="group relative  lg:rounded-2xl  border-main-color border-[3px] rounded-lg shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden h-full"
+        className="group relative  lg:rounded-3xl  border-main-color border-[3px] rounded-lg shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden h-full"
       >
         {/* Thumbnail with YouTube Icon Button */}
         <div
-          className={`relative overflow-hidden ${aspect ? "aspect-video" : "h-[200px] xl:h-[400px]"} lg:rounded-t-2xl group`}
+          className={`relative overflow-hidden  ${aspect ? "aspect-video" : "h-[200px] xl:h-[400px]"} lg:rounded-t-2xl group`}
         >
           {/* Scalable Image on Hover */}
           <div className="w-full h-full overflow-hidden relative">
