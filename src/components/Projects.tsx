@@ -16,7 +16,6 @@ export default function Projects() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-console.log(projects)
 
   useEffect(() => {
     const fetchProjects = async () => {

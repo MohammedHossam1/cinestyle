@@ -12,21 +12,17 @@ import { container } from "../../constants";
 const CategoryVideos = () => {
   const { id } = useParams();
   const { t } = useTranslation();
-
   const [videos, setVideos] = useState<IProject[]>([]);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
 
   const limit = 12;
-  console.log(videos)
   useEffect(() => {
     const fetchCategoryVideos = async () => {
       if (!id) return;
       setLoading(true);
-
-      const { data, count } = await getProjects(page, limit, id, true);
-
+      const { data, count } = await getProjects(page, limit, id, 1);
       setVideos(data);
       setTotalPages(Math.ceil((count || 0) / limit));
       setLoading(false);
@@ -40,13 +36,19 @@ const CategoryVideos = () => {
   }
 
   if (videos.length === 0) {
-    return <div className="text-center text-white py-20">{t("noVideosFound")}</div>;
+    return <div className="text-center min-h-[90vh] flex flex-col justify-center items-center text-white py-20">
+        <BackBtn slug="1" />
+        <h2>
+          {t("noVideosFound")}
+        </h2>
+ 
+      </div>;
   }
 
   return (
     <div className="bg-neutral-900 min-h-screen py-20 lg:py-32">
       <div className={container}>
-        <BackBtn slug="reel" />
+        <BackBtn slug="1" />
         <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-5 gap-2">
           {videos.map((video, i) => (
             <ProjectCard key={i} project={video} index={i} aspect={false} />

@@ -5,4 +5,7 @@
 html, body {
     background-color: black;
   }
+  section {
+    scroll-margin-top: 100px; /* عدل الرقم حسب ارتفاع النافبار */
+  }
   

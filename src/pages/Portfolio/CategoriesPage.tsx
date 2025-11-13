@@ -50,13 +50,13 @@ const CategoriesPage = () => {
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const limit = 12;
-
+console.log(isReel, "i222222222d")
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
 
-      if (isReel === "promo") {
-        const { data, count } = await getProjects(page, limit, undefined, false);
+      if (isReel != "1") {
+        const { data, count } = await getProjects(page, limit, undefined, isReel ? Number(isReel) : undefined);
         setProjects(data);
         setTotalPages(Math.ceil((count || 0) / limit));
       } else {
@@ -79,16 +79,10 @@ const CategoriesPage = () => {
       <div className={`min-h-screen ${container}`}>
         <BackBtn slug="#reelOrPromo" />
         <div className={`grid  h-full  gap-2 pb-10 pt-2 ${isReel === "promo" ? "grid-cols-2" : "grid-cols-3"} md:grid-cols-4 lg:gap-6`}>
-          {isReel === "promo"
-            ? projects.map((project, i) => (
-              <motion.div
-                key={project.id}
-                custom={i}
-              >
-                <ProjectCard project={project} index={i} />
-              </motion.div>
-            ))
-            : categoryList.map((cat, i) => (
+
+          {isReel === "1"
+            ?
+            categoryList.map((cat, i) => (
               <motion.div
                 key={cat.id}
                 custom={i}
@@ -124,8 +118,15 @@ const CategoriesPage = () => {
 
 
               </motion.div>
+            ))
+            : projects.map((project, i) => (
+              <motion.div
+                key={project.id}
+                custom={i}
+              >
+                <ProjectCard project={project} index={i} isReel={isReel === "1"} />
+              </motion.div>
             ))}
-
 
         </div>
         {isReel === "promo" && (

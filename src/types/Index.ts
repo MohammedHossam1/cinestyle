@@ -6,11 +6,18 @@ export interface IProject {
     isReel?: boolean;
   }
   
-export interface IServices {
-    titleAr: string;
-    titleEn: string;
-    link: string;
-    image_url: string;
-    isReel?: boolean;
-  }
-  
+  export interface IServices {
+      titleAr: string;
+      titleEn: string;
+      link: string;
+      image_url: string;
+      isReel?: boolean;
+    }
+    export interface IOuterCategories {
+        id: number;
+        titleAr: string;
+        titleEn: string;
+        image: string;
+        link: string;
+        
+    }

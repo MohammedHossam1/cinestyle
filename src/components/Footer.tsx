@@ -18,7 +18,6 @@ export default function Footer() {
   const { t, i18n } = useTranslation();
   const isAr = i18n.language === "ar";
   const { data: servicesData = [], isLoading, error } = useServices();
-  console.log(servicesData)
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {

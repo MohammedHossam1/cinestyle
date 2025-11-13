@@ -28,11 +28,10 @@ const Navbar: React.FC = () => {
   }, []);
 
   const navItems = [
-    { key: 'home', path: '/' },
+    { key: 'home', path: '/#' },
     { key: 'about', path: '/#about' },
     { key: 'services', path: '/#services' },
-    { key: 'reel', path: '/reel' },
-    { key: 'promo', path: '/promo' },
+    { key: 'portfolio', path: '/#reelOrPromo' },
     { key: 'contact', path: '/#contact' }
   ];
 

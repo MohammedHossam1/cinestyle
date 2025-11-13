@@ -1,8 +1,8 @@
+import { ChevronDown } from "lucide-react";
 import React, { useEffect, useRef } from "react";
-import { PlayCircle, ChevronDown } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import vedio from "../assets/hero.mp4";
 import { Link } from "react-router-dom";
+import vedio from "../assets/hero.mp4";
 import poster from "../assets/vedio-pre.webp";
 interface HeroSectionProps {
   title?: string;
@@ -92,23 +92,16 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           {t("hero.subtitle")}
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          {/* <Link
-            to="https://www.youtube.com/@cinestylemp"
-            target="_blank"
-            className="bg-main-color hover:bg-main-color/80 text-white px-8 py-3 rounded-md font-medium transition-colors flex items-center"
-          >
-            <PlayCircle className="mx-2 h-5 w-5" />
-            {t("hero.watchShowreel")}
-          </Link> */}
-          <button
+          <Link
+            to="/#reelOrPromo"
             onClick={() => {
-              const contactSection = document.getElementById("contact");
+              const contactSection = document.getElementById("reelOrPromo");
               contactSection?.scrollIntoView({ behavior: "smooth" });
             }}
-            className="bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-8 py-3 rounded-md font-medium transition-colors"
+            className="bg-main-color backdrop-blur-sm hover:bg-main-color/80 text-white px-8 py-3 rounded-md font-medium transition-colors"
           >
-            {t("hero.getStarted")}
-          </button>
+            {t("hero.showProjects")}
+            </Link>
         </div>
       </div>
 

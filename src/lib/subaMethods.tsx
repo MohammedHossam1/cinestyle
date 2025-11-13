@@ -4,7 +4,7 @@ export const getProjects = async (
   page = 1,
   limit = 6,
   categoryId?: string,
-  isReel?: boolean
+  outerCategoryId?: number
 ) => {
   const from = (page - 1) * limit;
   const to = from + limit - 1;
@@ -13,18 +13,17 @@ export const getProjects = async (
     .from("projects")
     .select("*", { count: "exact" })
     .range(from, to)
-    .order("priority", { ascending: true });
+    .order("priority", { ascending: true })
+    .order("created_at", { ascending: false, nullsFirst: false });
 
   if (categoryId) {
     query = query.eq("category_id", categoryId);
   }
 
-  if (typeof isReel === "undefined") {
-    query = query.eq("isReel", false);
-  } else {
-    query = query.eq("isReel", isReel);
+ 
+  if (outerCategoryId) {
+    query = query.eq("outerCategory", outerCategoryId);
   }
-
   const { data, error, count } = await query;
 
   if (error) {
@@ -69,6 +68,18 @@ export const categories = async () => {
     .select("*")
     .order("created_at", { ascending: false });
 
+  if (error) {
+    console.error("Error fetching home projects:", error);
+    return [];
+  }
+
+  return data;
+};
+export const getOuterCategories = async () => {
+  const { data, error } = await supabase
+    .from("outerCategories")
+    .select("*")
+    .order("created_at", { ascending: false });
   if (error) {
     console.error("Error fetching home projects:", error);
     return [];

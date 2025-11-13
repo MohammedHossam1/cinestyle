@@ -38,6 +38,8 @@ const HomePage: React.FC = () => {
         whileInView={{ y: 0, opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 1, delay: 0.2 }}
+        id="reelOrPromo"
+        style={{ scrollMarginTop: "100px" }}
       >
         <Portfolio />
       </motion.div>
